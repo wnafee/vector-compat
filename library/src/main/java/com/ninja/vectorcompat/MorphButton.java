@@ -71,6 +71,7 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
         setBackgroundDrawable(mStartMorph);
         if (autoStart) {
             beginStartAnimation();
+            mState = MorphState.START;
         }
     }
 
