@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -75,16 +76,8 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private boolean isMorphable(Drawable d) {
-        if (d != null) {
-            if (LOLLIPOP) {
-                return (d instanceof android.graphics.drawable.AnimatedVectorDrawable);
-            } else {
-                return (d instanceof AnimatedVectorDrawable);
-            }
-        }
-        return false;
+        return d != null && d instanceof Animatable;
     }
 
     @SuppressWarnings("deprecation")
@@ -143,54 +136,34 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
 
         return super.performClick();
     }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    
     public boolean beginStartAnimation() {
         if (mStartMorph != null && mStartCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mStartMorph).start();
-            } else {
-                ((AnimatedVectorDrawable) mStartMorph).start();
-            }
+            ((Animatable) mStartMorph).start();
             return true;
         }
         return false;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public boolean endStartAnimation() {
         if (mStartMorph != null && mStartCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mStartMorph).stop();
-            } else {
-                ((AnimatedVectorDrawable) mStartMorph).stop();
-            }
+            ((Animatable) mStartMorph).stop();
             return true;
         }
         return false;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public boolean beginEndAnimation() {
         if (mEndMorph != null && mEndCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mEndMorph).start();
-            } else {
-                ((AnimatedVectorDrawable) mEndMorph).start();
-            }
+            ((Animatable) mEndMorph).start();
             return true;
         }
         return false;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public boolean endEndAnimation() {
         if (mEndMorph != null && mEndCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mEndMorph).stop();
-            } else {
-                ((AnimatedVectorDrawable) mEndMorph).stop();
-            }
+            ((Animatable) mEndMorph).stop();
             return true;
         }
         return false;
