@@ -1,11 +1,10 @@
 package com.ninja.vectorcompat;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,8 +16,6 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
 
     @SuppressWarnings("UnusedDeclaration")
     public static final String TAG = MorphButton.class.getSimpleName();
-    public static final boolean LOLLIPOP = Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP;
-
 
     private static enum MorphState {
         START,
@@ -67,7 +64,6 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
             mEndCanMorph = isMorphable(mEndMorph);
         }
 
-
         setBackgroundDrawable(mStartMorph);
         if (autoStart) {
             beginStartAnimation();
@@ -75,30 +71,20 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private boolean isMorphable(Drawable d) {
         if (d != null) {
-            if (LOLLIPOP) {
-                return (d instanceof android.graphics.drawable.AnimatedVectorDrawable);
-            } else {
-                return (d instanceof AnimatedVectorDrawable);
-            }
+            return (d instanceof Animatable);
         }
+
         return false;
     }
 
     @SuppressWarnings("deprecation")
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public Drawable getDrawable(Context c, int resId) {
         Drawable d;
         try {
-            if (LOLLIPOP) {
-                d = c.getResources().getDrawable(resId, null);
-            } else {
-                d = c.getResources().getDrawable(resId);
-            }
+            d = c.getResources().getDrawable(resId);
         } catch (Resources.NotFoundException e) {
-
             try {
                 d = VectorDrawable.create(c.getResources(), resId);
             } catch (IllegalArgumentException e1) {
@@ -112,13 +98,14 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
                 }
             }
         }
+
         return d;
     }
 
     @Override
     public void setOnClickListener(OnClickListener l) {
         //Make sure we always have an onClick listener to handle animations
-        super.setOnClickListener(l==null?this:l);
+        super.setOnClickListener(l == null ? this : l);
     }
 
     @Override
@@ -144,53 +131,33 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
         return super.performClick();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public boolean beginStartAnimation() {
         if (mStartMorph != null && mStartCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mStartMorph).start();
-            } else {
-                ((AnimatedVectorDrawable) mStartMorph).start();
-            }
+            ((Animatable) mStartMorph).start();
             return true;
         }
         return false;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public boolean endStartAnimation() {
         if (mStartMorph != null && mStartCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mStartMorph).stop();
-            } else {
-                ((AnimatedVectorDrawable) mStartMorph).stop();
-            }
+            ((Animatable) mStartMorph).stop();
             return true;
         }
         return false;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public boolean beginEndAnimation() {
         if (mEndMorph != null && mEndCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mEndMorph).start();
-            } else {
-                ((AnimatedVectorDrawable) mEndMorph).start();
-            }
+            ((Animatable) mEndMorph).start();
             return true;
         }
         return false;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public boolean endEndAnimation() {
         if (mEndMorph != null && mEndCanMorph) {
-            if (LOLLIPOP) {
-                ((android.graphics.drawable.AnimatedVectorDrawable) mEndMorph).stop();
-            } else {
-                ((AnimatedVectorDrawable) mEndMorph).stop();
-            }
+            ((Animatable) mEndMorph).stop();
             return true;
         }
         return false;
