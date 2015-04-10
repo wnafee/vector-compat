@@ -28,6 +28,11 @@ import android.widget.ImageButton;
 import com.ninja.vectorcompat.v14.AnimatedVectorDrawable;
 import com.ninja.vectorcompat.v14.VectorDrawable;
 
+
+//TODO: Add tint support compatibility
+//TODO: Handling onSaveInstanceState() for MorphState
+//TODO: Add methods for choosing which state to be in (with or without animation)
+//TODO:
 public class MorphButton extends ImageButton implements View.OnClickListener{
 
     @SuppressWarnings("UnusedDeclaration")
@@ -81,7 +86,6 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
             mEndMorph = getDrawable(context, endResId);
             mEndCanMorph = isMorphable(mEndMorph);
         }
-
 
         setBackgroundDrawable(mStartMorph);
         if (autoStart) {

@@ -14,6 +14,7 @@ package com.ninja.vectorcompat.v14;
  * the License.
  */
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
@@ -48,6 +49,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
 
+//TODO: Add theme support - canApplyTheme() and applyTheme()
 public class VectorDrawable extends DrawableCompat {
     private static final String LOGTAG = VectorDrawable.class.getSimpleName();
 
@@ -278,6 +280,10 @@ public class VectorDrawable extends DrawableCompat {
         float scaleX = viewportWidth / intrinsicWidth;
         float scaleY = viewportHeight / intrinsicHeight;
         return Math.min(scaleX, scaleY);
+    }
+
+    public static VectorDrawable  getDrawable(Context c, int resId) {
+        return create(c.getResources(), resId);
     }
 
     public static VectorDrawable create(Resources resources, int rid) {

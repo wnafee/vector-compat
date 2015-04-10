@@ -41,6 +41,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+//TODO: Add support for animator reversal
 public class AnimatedVectorDrawable extends DrawableCompat implements Animatable {
     private static final String LOGTAG = AnimatedVectorDrawable.class.getSimpleName();
 
@@ -176,6 +177,10 @@ public class AnimatedVectorDrawable extends DrawableCompat implements Animatable
     @Override
     public void getOutline(@NonNull Outline outline) {
         mAnimatedVectorState.mVectorDrawable.getOutline(outline);
+    }
+
+    public static AnimatedVectorDrawable getDrawable(Context c, int resId) {
+        return create(c, c.getResources(), resId);
     }
 
     public static AnimatedVectorDrawable create(Context c, Resources resources, int rid) {
@@ -399,7 +404,6 @@ public class AnimatedVectorDrawable extends DrawableCompat implements Animatable
      * <p>
      * NOTE: Only works of all animations are ValueAnimators.
      */
-    //TODO: do not support animator reversal for now
 //    public void reverse() {
 //        final ArrayList<Animator> animators = mAnimatedVectorState.mAnimators;
 //        final int size = animators.size();
