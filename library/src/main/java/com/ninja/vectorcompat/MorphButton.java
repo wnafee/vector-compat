@@ -111,12 +111,12 @@ public class MorphButton extends ImageButton implements View.OnClickListener{
         } catch (Resources.NotFoundException e) {
 
             try {
-                d = VectorDrawable.create(c.getResources(), resId);
+                d = VectorDrawable.getDrawable(c, resId);
             } catch (IllegalArgumentException e1) {
 
                 //We're not a VectorDrawable, try AnimatedVectorDrawable
                 try {
-                    d = AnimatedVectorDrawable.create(c, c.getResources(), resId);
+                    d = AnimatedVectorDrawable.getDrawable(c, resId);
                 } catch (IllegalArgumentException e2) {
                     //Throw NotFoundException
                     throw e;
