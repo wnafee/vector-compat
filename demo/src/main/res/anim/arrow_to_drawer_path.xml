@@ -12,4 +12,4 @@
     app:propertyName="pathData"
     app:valueFrom="@string/path_arrow"
     app:valueTo="@string/path_drawer"
-    app:valueType="pathType"/>
+    app:valueType="pathType" />

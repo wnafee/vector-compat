@@ -3,4 +3,4 @@
     android:duration="@integer/avd_duration"
     android:propertyName="rotation"
     android:valueFrom="90"
-    android:valueTo="180"/>
+    android:valueTo="180" />

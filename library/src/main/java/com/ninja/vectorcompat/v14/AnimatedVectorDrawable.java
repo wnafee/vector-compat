@@ -48,7 +48,7 @@ public class AnimatedVectorDrawable extends DrawableCompat implements Animatable
     private static final String ANIMATED_VECTOR = "animated-vector";
     private static final String TARGET = "target";
 
-    private static final boolean DBG_ANIMATION_VECTOR_DRAWABLE = true;
+    private static final boolean DBG_ANIMATION_VECTOR_DRAWABLE = false;
 
     private AnimatedVectorDrawableState mAnimatedVectorState;
 

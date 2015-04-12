@@ -11,17 +11,19 @@
     tools:context=".MainActivity">
 
     <com.ninja.vectorcompat.MorphButton
+        android:id="@+id/drawerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        app:morphStartDrawableBackground="@drawable/ic_arrow_to_drawer"
-        app:morphEndDrawableBackground="@drawable/ic_drawer_to_arrow"/>
+        app:morphStartDrawable="@drawable/ic_arrow_to_drawer"
+        app:morphEndDrawable="@drawable/ic_drawer_to_arrow"/>
 
     <com.ninja.vectorcompat.MorphButton
+        android:id="@+id/playBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:morphStartDrawableBackground="@drawable/ic_pause_to_play"
-        app:morphEndDrawableBackground="@drawable/ic_play_to_pause"/>
+        app:morphStartDrawable="@drawable/ic_pause_to_play"
+        app:morphEndDrawable="@drawable/ic_play_to_pause"/>
 
 </LinearLayout>

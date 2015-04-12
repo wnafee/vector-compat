@@ -228,7 +228,7 @@ public class PathAnimatorInflater {
         if (valueType == VALUE_TYPE_PATH) {
             evaluator = setupAnimatorForPath(anim, arrayAnimator);
         } else {
-            throw new IllegalArgumentException("not a target is not a pathType target");
+            throw new IllegalArgumentException("target is not a pathType target");
         }
 
         anim.setDuration(duration);

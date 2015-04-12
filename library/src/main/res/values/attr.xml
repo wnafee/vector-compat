@@ -5,13 +5,13 @@
 <!--</declare-styleable>-->
 <resources>
 
-    <declare-styleable name="MyTheme">
+    <declare-styleable name="Theme">
         <attr name="morphButtonStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="MorphButton">
-        <attr name="morphStartDrawableBackground" format="reference"/>
-        <attr name="morphEndDrawableBackground" format="reference"/>
+        <attr name="morphStartDrawable" format="reference"/>
+        <attr name="morphEndDrawable" format="reference"/>
         <attr name="autoStartAnimation" format="boolean"/>
     </declare-styleable>
 
