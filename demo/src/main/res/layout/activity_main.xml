@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <com.ninja.vectorcompat.MorphButton
+    <com.wnafee.vector.MorphButton
         android:id="@+id/drawerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         app:morphStartDrawable="@drawable/ic_arrow_to_drawer"
         app:morphEndDrawable="@drawable/ic_drawer_to_arrow"/>
 
-    <com.ninja.vectorcompat.MorphButton
+    <com.wnafee.vector.MorphButton
         android:id="@+id/playBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

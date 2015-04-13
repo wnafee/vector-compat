@@ -1,4 +1,4 @@
-package com.ninja.vectorcompatdemo;
+package com.wnafee.vector.compat.demo;
 
 /*
  * Copyright (C) 2015 Wael Nafee
@@ -14,11 +14,10 @@ package com.ninja.vectorcompatdemo;
  * the License.
  */
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
 
 public class MainActivity extends ActionBarActivity {
 

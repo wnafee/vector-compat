@@ -1,4 +1,4 @@
-package com.ninja.vectorcompat.v14;
+package com.wnafee.vector.compat;
 
 /*
  * Copyright (C) 2015 Wael Nafee

@@ -1,4 +1,4 @@
-package com.ninja.vectorcompat.v14;
+package com.wnafee.vector.compat;
 
 /*
  * Copyright (C) 2015 Wael Nafee
@@ -33,7 +33,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
 
-import com.ninja.vectorcompat.R;
+import com.wnafee.vector.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

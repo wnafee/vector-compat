@@ -1,4 +1,4 @@
-package com.ninja.vectorcompat;
+package com.wnafee.vector;
 
 /*
  * Copyright (C) 2015 Wael Nafee
@@ -27,8 +27,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.CompoundButton;
 
-import com.ninja.vectorcompat.v14.AnimatedVectorDrawable;
-import com.ninja.vectorcompat.v14.VectorDrawable;
+import com.wnafee.vector.compat.AnimatedVectorDrawable;
+import com.wnafee.vector.compat.VectorDrawable;
 
 
 //TODO: Add tint support compatibility
@@ -179,7 +179,7 @@ public class MorphButton extends CompoundButton {
     }
 
     /**
-     * Same as {@link com.ninja.vectorcompat.MorphButton#setState(com.ninja.vectorcompat.MorphButton.MorphState, boolean)} with no animation
+     * Same as {@link MorphButton#setState(MorphButton.MorphState, boolean)} with no animation
      *
      * @param state requested state
      */
@@ -190,7 +190,7 @@ public class MorphButton extends CompoundButton {
     /**
      * Choose button state
      *
-     * @param state   a {@link com.ninja.vectorcompat.MorphButton.MorphState} to set button to
+     * @param state   a {@link MorphButton.MorphState} to set button to
      * @param animate should we animated to get to this state or not
      */
     @SuppressWarnings("deprecation")
