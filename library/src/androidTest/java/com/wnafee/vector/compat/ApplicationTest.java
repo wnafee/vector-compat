@@ -1,4 +1,4 @@
-package com.ninja.vectorcompatdemo;
+package com.wnafee.vector.compat;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
