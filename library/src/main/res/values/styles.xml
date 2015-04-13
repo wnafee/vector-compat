@@ -1,10 +1,5 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <!--<style name="MorphAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
-        <!--<item name="morphButtonStyle">@style/Widget.AppCompat.Button.Morph</item>-->
-    <!--</style>-->
-
     <style name="Widget.MorphButton" parent="@android:style/Widget.Holo.Button.Toggle">
         <item name="morphStartDrawable">@null</item>
         <item name="morphEndDrawable">@null</item>

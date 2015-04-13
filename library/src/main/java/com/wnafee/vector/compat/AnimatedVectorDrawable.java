@@ -16,6 +16,8 @@ package com.wnafee.vector.compat;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -404,30 +406,56 @@ public class AnimatedVectorDrawable extends DrawableCompat implements Animatable
      * <p>
      * NOTE: Only works of all animations are ValueAnimators.
      */
-//    public void reverse() {
-//        final ArrayList<Animator> animators = mAnimatedVectorState.mAnimators;
-//        final int size = animators.size();
-//        for (int i = 0; i < size; i++) {
-//            final Animator animator = animators.get(i);
-//            if (animator.canReverse()) {
-//                animator.reverse();
-//            } else {
-//                Log.w(LOGTAG, "AnimatedVectorDrawable can't reverse()");
-//            }
-//        }
-//    }
-//
-//    public boolean canReverse() {
-//        final ArrayList<Animator> animators = mAnimatedVectorState.mAnimators;
-//        final int size = animators.size();
-//        for (int i = 0; i < size; i++) {
-//            final Animator animator = animators.get(i);
-//            if (!animator.canReverse()) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
+    public void reverse() {
+        final ArrayList<Animator> animators = mAnimatedVectorState.mAnimators;
+        final int size = animators.size();
+        for (int i = 0; i < size; i++) {
+            final Animator animator = animators.get(i);
+            if (canReverse(animator)) {
+                reverse(animator);
+            } else {
+                Log.w(LOGTAG, "AnimatedVectorDrawable can't reverse()");
+            }
+        }
+    }
+
+    public boolean canReverse() {
+        final ArrayList<Animator> animators = mAnimatedVectorState.mAnimators;
+        final int size = animators.size();
+        for (int i = 0; i < size; i++) {
+            final Animator animator = animators.get(i);
+            if (!canReverse(animator)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean canReverse(Animator a) {
+        if (a instanceof AnimatorSet) {
+            final ArrayList<Animator> animators = ((AnimatorSet)a).getChildAnimations();
+            for(Animator anim: animators) {
+                if(!canReverse(anim)) {
+                    return false;
+                }
+            }
+        } else if (a instanceof ValueAnimator) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void reverse(Animator a) {
+        if (a instanceof AnimatorSet) {
+            final ArrayList<Animator> animators = ((AnimatorSet)a).getChildAnimations();
+            for(Animator anim: animators) {
+                reverse(anim);
+            }
+        } else if (a instanceof ValueAnimator) {
+            ((ValueAnimator)a).reverse();
+        }
+    }
 
 }
 
