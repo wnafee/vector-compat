@@ -24,7 +24,6 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.CompoundButton;
 
 import com.wnafee.vector.compat.AnimatedVectorDrawable;
@@ -87,8 +86,6 @@ public class MorphButton extends CompoundButton {
             mEndCanMorph = isMorphable(mEndMorph);
         }
 
-        Log.d(TAG, "creating new morph button with autoStart: " + autoStart);
-
         setState(mState);
         if (autoStart) {
             setState(MorphState.END, true);
@@ -101,7 +98,7 @@ public class MorphButton extends CompoundButton {
 
     @SuppressWarnings("deprecation")
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public Drawable getDrawable(Context c, int resId) {
+    public static Drawable getDrawable(Context c, int resId) {
         Drawable d;
         try {
             if (LOLLIPOP) {
@@ -124,21 +121,12 @@ public class MorphButton extends CompoundButton {
                 }
             }
         }
-        return d;//.getConstantState().newDrawable();
+        return d;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public void toggle() {
-        MorphState beforeToggle = mState;
-        if (mState == MorphState.START) {
-            setState(MorphState.END, true);
-        } else {
-            setState(MorphState.START, true);
-        }
-
-        Log.d(TAG, "toggling from " + beforeToggle + " to " + mState);
-
+        setState(mState == MorphState.START ? MorphState.END: MorphState.START, true);
         super.toggle();
     }
 
