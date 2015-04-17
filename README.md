@@ -1,7 +1,7 @@
 # vector-compat
 A basic support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] introduced in Lollipop (supports api 14+ so far)
 
-`vector-compat` provides the necessary tools to make animated icons similar to the new drawer hamburger icon that morphs to a back arrow when clicked. Any other morph animation between icons can be defined in purely in `xml` (no java code required) and the library takes care of the transformation animation
+`vector-compat` provides the necessary tools to make animated icons similar to the new drawer hamburger icon that morphs to a back arrow when clicked. Any other morph animation between icons can be defined purely in `xml` (no java code required) and the library takes care of the transformation animation
 
 ![Example](https://github.com/wnafee/vector-compat/blob/master/demo.gif)
 
@@ -43,7 +43,7 @@ MorphButton.getDrawable(context, R.drawable.any_drawable);
 #### MorphButton
 `MorphButton` is a `CompoundButton` with 2 states: `MorphState.START` or `MorphState.END`. The attributes `morphStartDrawable` and `morphEndDrawable` define which drawables to use as the button background depending on the button's state. These can be any type of drawable (e.g. `BitmapDrawable`, `ColorDrawable`, `VectorDrawable`, `AnimatedVectorDrawable` etc.)
 
-Button clicks will toggle between the drawable states. If the drawables happen to implement the [`Animatable`][1] interface (e.g. `AnimatedVectorDrawable` or `AnimationDrawable`) then `start()` will be automatically called to animate between the start and end drawables defined in xml.
+Button clicks will toggle between the drawable states. If the drawables happen to implement the [`Animatable`][3] interface (e.g. `AnimatedVectorDrawable` or `AnimationDrawable`) then `start()` will be automatically called to animate between the start and end drawables defined in xml.
 
  Button state can also be set manually via `setState()` methods:
 ```java
