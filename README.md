@@ -1,11 +1,11 @@
 # vector-compat
-A basic support library for `VectorDrawable` and `AnimatedVectorDrawable` introduced in Lollipop (supports api 14+ so far)
+A basic support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] introduced in Lollipop (supports api 14+ so far)
 
 `vector-compat` provides the necessary tools to make animated icons similar to the new drawer hamburger icon that morphs to a back arrow when clicked. Any other morph animation between icons can be defined in purely in `xml` (no java code required) and the library takes care of the transformation animation
 
 ![Example](https://github.com/wnafee/vector-compat/blob/master/demo.gif)
 
-The library will transparently fallbacks to the lollipop implementation of `VectorDrawable` and `AnimatedVectorDrawable` on api 21+ devices
+The library will transparently fall back to the lollipop implementation of `VectorDrawable` and `AnimatedVectorDrawable` on api 21+ devices
 
 ## Download
 Add the vector-compat dependency to your `build.gradle` file:
@@ -70,4 +70,6 @@ myMorphButton.setState(MorphState.START, true)
     See the License for the specific language governing permissions and
     limitations under the License.
 
-[1]: http://developer.android.com/reference/android/graphics/drawable/Animatable.html
+[1]: http://developer.android.com/reference/android/graphics/drawable/VectorDrawable.html
+[2]: http://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable.html
+[3]: http://developer.android.com/reference/android/graphics/drawable/Animatable.html
