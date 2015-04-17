@@ -11,7 +11,7 @@ The library will transparently fall back to the lollipop implementation of `Vect
 Add the vector-compat dependency to your `build.gradle` file:
 ```groovy
 dependencies {
-    compile 'com.wnafee:vector-compat:1.0.0'
+    compile 'com.wnafee:vector-compat:1.0.1'
 }
 ```
 
@@ -27,7 +27,7 @@ VectorDrawable.getDrawable(context, R.drawable.ic_arrow_vector);
 AnimatedVectorDrawable.getDrawable(context, R.drawable.ic_arrow_to_menu_animated_vector);
 
 // This will inflate any drawable and will auto-fallback to the lollipop implementation on api 21+ devices
-MorphButton.getDrawable(context, R.drawable.any_drawable);
+ResourcesCompat.getDrawable(context, R.drawable.any_drawable);
 ````
 
 * directly from the `MorphButton` view in xml:
