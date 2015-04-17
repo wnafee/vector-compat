@@ -14,20 +14,17 @@ package com.wnafee.vector;
  * the License.
  */
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
 
-import com.wnafee.vector.compat.AnimatedVectorDrawable;
-import com.wnafee.vector.compat.VectorDrawable;
+import com.wnafee.vector.compat.ResourcesCompat;
 
 
 //TODO: Add tint support compatibility
@@ -36,7 +33,6 @@ public class MorphButton extends CompoundButton {
 
     @SuppressWarnings("UnusedDeclaration")
     public static final String TAG = MorphButton.class.getSimpleName();
-    public static final boolean LOLLIPOP = Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP;
 
     public static enum MorphState {
         START,
@@ -77,12 +73,12 @@ public class MorphButton extends CompoundButton {
         setClickable(true);
 
         if (startResId > 0) {
-            mStartMorph = getDrawable(context, startResId);
+            mStartMorph = ResourcesCompat.getDrawable(context, startResId);
             mStartCanMorph = isMorphable(mStartMorph);
         }
 
         if (endResId > 0) {
-            mEndMorph = getDrawable(context, endResId);
+            mEndMorph = ResourcesCompat.getDrawable(context, endResId);
             mEndCanMorph = isMorphable(mEndMorph);
         }
 
@@ -96,41 +92,13 @@ public class MorphButton extends CompoundButton {
         return d != null && d instanceof Animatable;
     }
 
-    @SuppressWarnings("deprecation")
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static Drawable getDrawable(Context c, int resId) {
-        Drawable d;
-        try {
-            if (LOLLIPOP) {
-                d = c.getResources().getDrawable(resId, null);
-            } else {
-                d = c.getResources().getDrawable(resId);
-            }
-        } catch (Resources.NotFoundException e) {
-
-            try {
-                d = VectorDrawable.getDrawable(c, resId);
-            } catch (IllegalArgumentException e1) {
-
-                //We're not a VectorDrawable, try AnimatedVectorDrawable
-                try {
-                    d = AnimatedVectorDrawable.getDrawable(c, resId);
-                } catch (IllegalArgumentException e2) {
-                    //Throw NotFoundException
-                    throw e;
-                }
-            }
-        }
-        return d;
-    }
-
     @Override
     public void toggle() {
         setState(mState == MorphState.START ? MorphState.END: MorphState.START, true);
         super.toggle();
     }
 
-    public boolean beginStartAnimation() {
+    private boolean beginStartAnimation() {
         if (mStartMorph != null && mStartCanMorph) {
             ((Animatable) mStartMorph).start();
             return true;
@@ -138,7 +106,7 @@ public class MorphButton extends CompoundButton {
         return false;
     }
 
-    public boolean endStartAnimation() {
+    private boolean endStartAnimation() {
         if (mStartMorph != null && mStartCanMorph) {
             ((Animatable) mStartMorph).stop();
             return true;
@@ -146,7 +114,7 @@ public class MorphButton extends CompoundButton {
         return false;
     }
 
-    public boolean beginEndAnimation() {
+    private boolean beginEndAnimation() {
         if (mEndMorph != null && mEndCanMorph) {
             ((Animatable) mEndMorph).start();
             return true;
@@ -154,7 +122,7 @@ public class MorphButton extends CompoundButton {
         return false;
     }
 
-    public boolean endEndAnimation() {
+    private boolean endEndAnimation() {
         if (mEndMorph != null && mEndCanMorph) {
             ((Animatable) mEndMorph).stop();
             return true;
@@ -202,6 +170,7 @@ public class MorphButton extends CompoundButton {
 
     @Override
     public void setChecked(boolean checked) {
+        setState(checked ? MorphState.END : MorphState.START);
         super.setChecked(checked);
     }
 
