@@ -36,7 +36,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
-import android.util.LayoutDirection;
 import android.util.Log;
 import android.util.Xml;
 
@@ -522,7 +521,7 @@ public class VectorDrawable extends DrawableCompat {
     }
 
     private boolean needMirroring() {
-        return isAutoMirrored() && getLayoutDirection() == LayoutDirection.RTL;
+        return isAutoMirrored() && getLayoutDirection() == 1; // 1 is for LayoutDirection.RTL
     }
 
     @Override

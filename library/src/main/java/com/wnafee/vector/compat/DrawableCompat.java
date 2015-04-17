@@ -31,13 +31,11 @@ import android.util.AttributeSet;
 
     public static abstract class ConstantStateCompat extends ConstantState {
 
-        @Override
         public boolean canApplyTheme() {
             return false;
         }
     }
 
-    @Override
     public boolean canApplyTheme() {
         return false;
     }
