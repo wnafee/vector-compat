@@ -17,10 +17,10 @@ dependencies {
 
 ## Usage
 `VectorDrawable` and `AnimatedVectorDrawable` xml drawable syntax is exactly the same as the lollipop documentation (can be seen [here][1] and [here][2] respectively). With 2 caveats: 
-* All attributes under the `<vector>` and `<animated-vector>` nodes have to be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
-* Any `pathType` anim xml attributes need to have be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
+* All attributes under the `<vector>` and `<animated-vector>` nodes must be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
+* Any `pathType` anim xml attributes must be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
 
-Listing those attributes under the local namespace allows lollipop implementation fallback. See [this][4] and [this][5] sample for `vector` and `pathType` animations provided in the library.
+Listing those attributes under the both android and local namespaces allows lollipop implementation fallback. See [this][4] and [this][5] sample for `vector` and `pathType` animations provided in the library.
 
 #### Inflation
 `VectorDrawable` and `AnimatedVectorDrawable` in this support library can be inflated in one of 2 ways:
