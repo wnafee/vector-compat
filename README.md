@@ -1,11 +1,20 @@
 # vector-compat
-A basic support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] introduced in Lollipop (supports api 14+ so far)
+A support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] introduced in Lollipop (supports api 14+ so far)
 
-`vector-compat` provides the necessary tools to make animated icons similar to the new drawer hamburger icon that morphs to a back arrow when clicked. Any other morph animation between icons can be defined purely in `xml` (no java code required) and the library takes care of the transformation animation
+`vector-compat` provides the necessary tools to make animated icons similar to the new drawer hamburger icon that morphs to a back arrow when clicked. Any other morph animation between icons can be defined _purely in `xml` (**no java code required**)_ and the library takes care of the transformation animation. Because they are in vector format, these drawables can be of any height and width with no resulting pixelation.
 
 ![Example](https://github.com/wnafee/vector-compat/blob/master/demo.gif)
 
 The library will transparently fall back to the lollipop implementation of `VectorDrawable` and `AnimatedVectorDrawable` on api 21+ devices
+
+##Commonly used animations
+The library packs some ready-made morph animations developers can use in their code with `MorphButton`. More will be added soon as this is a work-in-progress. The library has following morph animations :
+* Play-pause morph animation (bi-directional morph)
+* Arrow-Hamburger menu morph animation (bi-directional morph)
+
+_**The goal is to, with time, create repo of commonly used morph animations that lots of developers find useful.**_
+
+If you have requests for particular morph animations, please open a [new issue](https://github.com/wnafee/vector-compat/issues/new) and I'll work on adding them to the library. You are also welcome to create a [pull request](https://github.com/wnafee/vector-compat/compare) if you've created some of your own. **_Please contribute_** :)
 
 ## Download
 Add the vector-compat dependency to your `build.gradle` file:
@@ -14,7 +23,6 @@ dependencies {
     compile 'com.wnafee:vector-compat:1.0.1'
 }
 ```
-
 ## Usage
 `VectorDrawable` and `AnimatedVectorDrawable` xml drawable syntax is exactly the same as the lollipop documentation (can be seen [here][1] and [here][2] respectively). With 2 caveats: 
 * All attributes under the `<vector>` and `<animated-vector>` nodes must be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
