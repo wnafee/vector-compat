@@ -20,7 +20,7 @@ dependencies {
 * All attributes under the `<vector>` and `<animated-vector>` nodes have to be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
 * Any `pathType` anim xml attributes need to have be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
 
-Listing those attributes under the local namespace allows lollipop implementation fallback. An to see an example of this, see [this][4] and [this][5] sample `vector` and `pathType` animations provided in the library.
+Listing those attributes under the local namespace allows lollipop implementation fallback. See [this][4] and [this][5] sample for `vector` and `pathType` animations provided in the library.
 
 #### Inflation
 `VectorDrawable` and `AnimatedVectorDrawable` in this support library can be inflated in one of 2 ways:
