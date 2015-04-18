@@ -84,6 +84,8 @@ myMorphButton.setState(MorphState.START, true)
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/wnafee/vector-compat/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 [1]: http://developer.android.com/reference/android/graphics/drawable/VectorDrawable.html
 [2]: http://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable.html
