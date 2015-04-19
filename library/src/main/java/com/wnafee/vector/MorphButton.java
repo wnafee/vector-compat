@@ -47,6 +47,8 @@ public class MorphButton extends CompoundButton {
     boolean mStartCanMorph = false;
     boolean mEndCanMorph = false;
 
+    boolean mIsToggling = false;
+
     public MorphButton(Context context) {
         this(context, null);
     }
@@ -94,8 +96,10 @@ public class MorphButton extends CompoundButton {
 
     @Override
     public void toggle() {
+        mIsToggling = true;
         setState(mState == MorphState.START ? MorphState.END: MorphState.START, true);
         super.toggle();
+        mIsToggling = false;
     }
 
     private boolean beginStartAnimation() {
@@ -170,7 +174,9 @@ public class MorphButton extends CompoundButton {
 
     @Override
     public void setChecked(boolean checked) {
-        setState(checked ? MorphState.END : MorphState.START);
+        if (!mIsToggling) {
+            setState(checked ? MorphState.END : MorphState.START);
+        }
         super.setChecked(checked);
     }
 
