@@ -18,6 +18,8 @@ If you have requests for particular morph animations, please open a [new issue](
 
 ## Download
 Add the vector-compat dependency to your `build.gradle` file:
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.wnafee/vector-compat.svg)](http://search.maven.org/#search%7Cga%7C1%7Cvector-compat)
 ```groovy
 dependencies {
     compile 'com.wnafee:vector-compat:1.0.1'
