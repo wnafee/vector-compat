@@ -14,17 +14,25 @@ package com.wnafee.vector;
  * the License.
  */
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
 
+import com.wnafee.vector.compat.DrawableCompat;
 import com.wnafee.vector.compat.ResourcesCompat;
+import com.wnafee.vector.compat.Tintable;
 
 
 //TODO: Add tint support compatibility
@@ -42,6 +50,15 @@ public class MorphButton extends CompoundButton {
     public interface OnStateChangedListener {
         public void onStateChanged(MorphState changedTo, boolean isAnimating);
     }
+
+    private static class TintInfo {
+        ColorStateList mTintList;
+        PorterDuff.Mode mTintMode;
+        boolean mHasTintMode;
+        boolean mHasTintList;
+    }
+
+    TintInfo mBackgroundTint;
 
     MorphState mState = MorphState.START;
 
@@ -64,6 +81,7 @@ public class MorphButton extends CompoundButton {
         this(context, attrs, R.attr.morphButtonStyle);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @SuppressWarnings("deprecation")
     public MorphButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -74,6 +92,16 @@ public class MorphButton extends CompoundButton {
         int startResId = a.getResourceId(R.styleable.MorphButton_morphStartDrawable, -1);
         int endResId = a.getResourceId(R.styleable.MorphButton_morphEndDrawable, -1);
         boolean autoStart = a.getBoolean(R.styleable.MorphButton_autoStartAnimation, false);
+
+        mBackgroundTint = new TintInfo();
+        mBackgroundTint.mTintList = a.getColorStateList(R.styleable.MorphButton_backgroundTint);
+        mBackgroundTint.mHasTintList = mBackgroundTint.mTintList != null;
+
+
+        mBackgroundTint.mTintMode = DrawableCompat.parseTintMode(a.getInt(
+                R.styleable.MorphButton_backgroundTintMode, -1), null);
+        mBackgroundTint.mHasTintMode = mBackgroundTint.mTintMode != null;
+
         a.recycle();
 
         //Setup default params
@@ -97,6 +125,121 @@ public class MorphButton extends CompoundButton {
         if (autoStart) {
             mHasStarted = true;
             setState(MorphState.END, true);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @SuppressWarnings("deprecation")
+    @Override
+    public void setBackgroundDrawable(Drawable background) {
+        if (ResourcesCompat.LOLLIPOP) {
+            if (mBackgroundTint != null) {
+                // Set tint parameters for superclass View to apply
+                if (mBackgroundTint.mHasTintList)
+                    super.setBackgroundTintList(mBackgroundTint.mTintList);
+                if (mBackgroundTint.mHasTintMode)
+                    super.setBackgroundTintMode(mBackgroundTint.mTintMode);
+            }
+            super.setBackgroundDrawable(background);
+        } else {
+            super.setBackgroundDrawable(background);
+
+            // Need to apply tint ourselves
+            applyBackgroundTint();
+        }
+
+    }
+
+    public ColorStateList getBackgroundTintList() {
+        if (ResourcesCompat.LOLLIPOP) {
+            return getBackgroundTintList();
+        }
+        return mBackgroundTint != null ? mBackgroundTint.mTintList : null;
+    }
+
+    public void setBackgroundTintList(@Nullable ColorStateList tint) {
+        if (ResourcesCompat.LOLLIPOP) {
+            super.setBackgroundTintList(tint);
+        }
+
+        if (mBackgroundTint == null) {
+            mBackgroundTint = new TintInfo();
+        }
+        mBackgroundTint.mTintList = tint;
+        mBackgroundTint.mHasTintList = true;
+
+        if (!ResourcesCompat.LOLLIPOP) {
+            applyBackgroundTint();
+        }
+    }
+
+    public PorterDuff.Mode getBackgroundTintMode() {
+        if (ResourcesCompat.LOLLIPOP) {
+            return getBackgroundTintMode();
+        }
+        return mBackgroundTint != null ? mBackgroundTint.mTintMode : null;
+    }
+
+    public void setBackgroundTintMode(@Nullable PorterDuff.Mode tintMode) {
+        if (ResourcesCompat.LOLLIPOP) {
+            super.setBackgroundTintMode(tintMode);
+        }
+        if (mBackgroundTint == null) {
+            mBackgroundTint = new TintInfo();
+        }
+        mBackgroundTint.mTintMode = tintMode;
+        mBackgroundTint.mHasTintMode = true;
+
+        if (!ResourcesCompat.LOLLIPOP) {
+            applyBackgroundTint();
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void applyBackgroundTint() {
+        Drawable d = getBackground();
+        final TintInfo tintInfo = mBackgroundTint;
+        if (d != null && mBackgroundTint != null) {
+            if (ResourcesCompat.LOLLIPOP) {
+                if (tintInfo.mHasTintList || tintInfo.mHasTintMode) {
+                    d = d.mutate();
+                    if (tintInfo.mHasTintList) {
+                        d.setTintList(tintInfo.mTintList);
+                    }
+                    if (tintInfo.mHasTintMode) {
+                        d.setTintMode(tintInfo.mTintMode);
+                    }
+                }
+            } else if (d instanceof Tintable) {
+                // Our VectorDrawable and AnimatedVectorDrawable implementation
+                if (tintInfo.mHasTintList || tintInfo.mHasTintMode) {
+                    d = d.mutate();
+                    Tintable t = (Tintable) d;
+                    if (tintInfo.mHasTintList) {
+                        t.setTintList(tintInfo.mTintList);
+                    }
+                    if (tintInfo.mHasTintMode) {
+                        t.setTintMode(tintInfo.mTintMode);
+                    }
+                }
+            } else {
+                //TODO: Should I attempt to make "stateful" ColorFilters from mBackgroundTint?
+                int color = Color.TRANSPARENT;
+                if (tintInfo.mHasTintList) {
+                    color = tintInfo.mTintList.getColorForState(getDrawableState(), Color.TRANSPARENT);
+                }
+                setColorFilter(color, PorterDuff.Mode.SRC_IN);
+            }
+        }
+    }
+
+    public void setColorFilter(int color, PorterDuff.Mode mode) {
+        if (mStartMorph != null) {
+            mStartMorph.setColorFilter(color, mode);
+        }
+
+        if (mEndMorph != null) {
+            mEndMorph.setColorFilter(color, mode);
         }
     }
 
@@ -213,10 +356,6 @@ public class MorphButton extends CompoundButton {
      */
     @SuppressWarnings("deprecation")
     public void setState(MorphState state, boolean animate) {
-        if (mState == state && mHasStarted) {
-            return;
-        }
-
         if (state == MorphState.START) {
             setBackgroundDrawable(mEndCanMorph ? mEndMorph : mStartMorph);
             beginEndAnimation();
@@ -229,6 +368,11 @@ public class MorphButton extends CompoundButton {
             if (!animate) {
                 endStartAnimation();
             }
+        }
+
+        // Only allow state listners to change if actually changing state
+        if (mState == state && mHasStarted) {
+            return;
         }
 
         mState = state;

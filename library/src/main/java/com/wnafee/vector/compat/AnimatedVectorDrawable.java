@@ -44,7 +44,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 //TODO: Add support for animator reversal
-public class AnimatedVectorDrawable extends DrawableCompat implements Animatable {
+public class AnimatedVectorDrawable extends DrawableCompat implements Animatable, Tintable {
     private static final String LOGTAG = AnimatedVectorDrawable.class.getSimpleName();
 
     private static final String ANIMATED_VECTOR = "animated-vector";

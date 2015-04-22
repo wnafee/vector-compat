@@ -14,11 +14,6 @@ package com.wnafee.vector.compat;
  * the License.
  */
 
-import com.wnafee.vector.R;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -44,12 +39,17 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
 
+import com.wnafee.vector.R;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
 
 //TODO: Add theme support - canApplyTheme() and applyTheme()
-public class VectorDrawable extends DrawableCompat {
+public class VectorDrawable extends DrawableCompat implements Tintable{
     private static final String LOGTAG = VectorDrawable.class.getSimpleName();
 
     static final Mode DEFAULT_TINT_MODE = Mode.SRC_IN;
@@ -334,24 +334,6 @@ public class VectorDrawable extends DrawableCompat {
         inflateInternal(res, parser, attrs, theme);
 
         mTintFilter = updateTintFilter(mTintFilter, state.mTint, state.mTintMode);
-    }
-
-    /**
-     * Parses a {@link android.graphics.PorterDuff.Mode} from a tintMode
-     * attribute's enum value.
-     *
-     * @hide
-     */
-    public static Mode parseTintMode(int value, Mode defaultMode) {
-        switch (value) {
-            case 3: return Mode.SRC_OVER;
-            case 5: return Mode.SRC_IN;
-            case 9: return Mode.SRC_ATOP;
-            case 14: return Mode.MULTIPLY;
-            case 15: return Mode.SCREEN;
-            case 16: return Mode.ADD;
-            default: return defaultMode;
-        }
     }
 
     private void updateStateFromTypedArray(TypedArray a) throws XmlPullParserException {
