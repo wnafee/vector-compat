@@ -14,17 +14,18 @@ package com.wnafee.vector;
  * the License.
  */
 
+import com.wnafee.vector.compat.ResourcesCompat;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
-
-import com.wnafee.vector.compat.ResourcesCompat;
 
 
 //TODO: Add tint support compatibility
@@ -100,6 +101,16 @@ public class MorphButton extends CompoundButton {
         setState(mState == MorphState.START ? MorphState.END: MorphState.START, true);
         super.toggle();
         mIsToggling = false;
+    }
+
+    public void setColorFilter(int color, PorterDuff.Mode mode) {
+        if (mStartMorph != null) {
+            mStartMorph.setColorFilter(color, mode);
+        }
+
+        if (mEndMorph != null) {
+            mEndMorph.setColorFilter(color, mode);
+        }
     }
 
     private boolean beginStartAnimation() {
