@@ -30,6 +30,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
@@ -156,6 +157,7 @@ public class MorphButton extends CompoundButton {
         return d != null && d instanceof Animatable;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setOnStateChangedListener(OnStateChangedListener l) {
 
         //Should I invalidate something?
@@ -250,6 +252,7 @@ public class MorphButton extends CompoundButton {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setStartDrawable(int rId) {
         setStartDrawable(rId, true);
     }
@@ -260,6 +263,7 @@ public class MorphButton extends CompoundButton {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setStartDrawable(Drawable d) {
         setStartDrawable(d, true);
     }
@@ -274,6 +278,7 @@ public class MorphButton extends CompoundButton {
             setState(mState);
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setEndDrawable(int rId) {
         setEndDrawable(rId, true);
     }
@@ -284,6 +289,7 @@ public class MorphButton extends CompoundButton {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setEndDrawable(Drawable d) {
         setEndDrawable(d, true);
     }
@@ -376,7 +382,7 @@ public class MorphButton extends CompoundButton {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
         if (mCurrentDrawable == null) {
@@ -449,6 +455,7 @@ public class MorphButton extends CompoundButton {
         return mBackgroundTint != null ? mBackgroundTint.mTintList : null;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public ColorStateList getForegroundTintList() {
         return mForegroundTint != null ? mForegroundTint.mTintList : null;
     }
@@ -469,6 +476,7 @@ public class MorphButton extends CompoundButton {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setForegroundTintList(@Nullable ColorStateList tint) {
         if (mForegroundTint == null) {
             mForegroundTint = new TintInfo();
@@ -482,6 +490,7 @@ public class MorphButton extends CompoundButton {
 
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public PorterDuff.Mode getForegroundTintMode() {
         return mForegroundTint != null ? mForegroundTint.mTintMode : null;
     }
@@ -508,6 +517,7 @@ public class MorphButton extends CompoundButton {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setForegroundTintMode(@Nullable PorterDuff.Mode tintMode) {
         if (mForegroundTint == null) {
             mForegroundTint = new TintInfo();
@@ -525,6 +535,7 @@ public class MorphButton extends CompoundButton {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setForegroundColorFilter(int color, PorterDuff.Mode mode) {
         if (mStartDrawable != null) {
             mStartDrawable.setColorFilter(color, mode);
@@ -535,10 +546,10 @@ public class MorphButton extends CompoundButton {
         }
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setBackgroundColorFilter(int color, PorterDuff.Mode mode) {
         setDrawableColorFilter(getBackground(), color, mode);
     }
-
 
     /**
      * Apply tint to the drawable
@@ -637,7 +648,7 @@ public class MorphButton extends CompoundButton {
         }
 
         @Override
-        public void writeToParcel(Parcel out, int flags) {
+        public void writeToParcel(@NonNull Parcel out, int flags) {
             super.writeToParcel(out, flags);
             out.writeValue(state);
         }
@@ -661,6 +672,7 @@ public class MorphButton extends CompoundButton {
         };
     }
 
+    @NonNull
     @Override
     public Parcelable onSaveInstanceState() {
         Parcelable superState = super.onSaveInstanceState();
@@ -675,13 +687,6 @@ public class MorphButton extends CompoundButton {
         super.onRestoreInstanceState(ss.getSuperState());
         setState(ss.state, false);
         requestLayout();
-    }
-
-    public void setAutoStart(boolean autoStart) {
-        if (autoStart && !mHasStarted) {
-            mHasStarted = true;
-            setState(MorphState.END, true);
-        }
     }
 
     private boolean beginStartAnimation() {
@@ -1038,7 +1043,7 @@ public class MorphButton extends CompoundButton {
     }
 
     @Override
-    public void invalidateDrawable(Drawable dr) {
+    public void invalidateDrawable(@NonNull Drawable dr) {
         if (dr == mStartDrawable || dr == mEndDrawable) {
             /* we invalidate the whole view in this case because it's very
              * hard to know where the drawable actually is. This is made
