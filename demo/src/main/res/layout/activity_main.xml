@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:vc_backgroundTint="#6A1B9A"
-        app:vc_startDrawable="@drawable/ic_play_vector"
-        app:vc_endDrawable="@drawable/ic_pause_vector"/>
+        app:vc_startDrawable="@drawable/ic_play_to_pause"
+        app:vc_endDrawable="@drawable/ic_pause_to_play"/>
 
     <com.wnafee.vector.MorphButton
         android:id="@+id/checkBtn"
