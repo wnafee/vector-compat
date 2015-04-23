@@ -1214,7 +1214,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
                 mPathName = pathName;
             }
 
-            final String pathData = a.getString(R.styleable.VectorDrawableClipPath_pathData);
+            final String pathData = a.getString(R.styleable.VectorDrawableClipPath_vc_pathData);
             if (pathData != null) {
                 mNodes = PathParser.createNodesFromPathData(pathData);
             }
@@ -1323,22 +1323,22 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
                 mPathName = pathName;
             }
 
-            final String pathData = a.getString(R.styleable.VectorDrawablePath_pathData);
+            final String pathData = a.getString(R.styleable.VectorDrawablePath_vc_pathData);
             if (pathData != null) {
                 mNodes = PathParser.createNodesFromPathData(pathData);
             }
 
-            mFillColor = a.getColor(R.styleable.VectorDrawablePath_fillColor, mFillColor);
-            mFillAlpha = a.getFloat(R.styleable.VectorDrawablePath_fillAlpha, mFillAlpha);
-            mStrokeLineCap = getStrokeLineCap(a.getInt(R.styleable.VectorDrawablePath_strokeLineCap, -1), mStrokeLineCap);
-            mStrokeLineJoin = getStrokeLineJoin(a.getInt(R.styleable.VectorDrawablePath_strokeLineJoin, -1), mStrokeLineJoin);
-            mStrokeMiterlimit = a.getFloat(R.styleable.VectorDrawablePath_strokeMiterLimit, mStrokeMiterlimit);
-            mStrokeColor = a.getColor(R.styleable.VectorDrawablePath_strokeColor, mStrokeColor);
-            mStrokeAlpha = a.getFloat(R.styleable.VectorDrawablePath_strokeAlpha, mStrokeAlpha);
-            mStrokeWidth = a.getFloat(R.styleable.VectorDrawablePath_strokeWidth, mStrokeWidth);
-            mTrimPathEnd = a.getFloat(R.styleable.VectorDrawablePath_trimPathEnd, mTrimPathEnd);
-            mTrimPathOffset = a.getFloat(R.styleable.VectorDrawablePath_trimPathOffset, mTrimPathOffset);
-            mTrimPathStart = a.getFloat(R.styleable.VectorDrawablePath_trimPathStart, mTrimPathStart);
+            mFillColor = a.getColor(R.styleable.VectorDrawablePath_vc_fillColor, mFillColor);
+            mFillAlpha = a.getFloat(R.styleable.VectorDrawablePath_vc_fillAlpha, mFillAlpha);
+            mStrokeLineCap = getStrokeLineCap(a.getInt(R.styleable.VectorDrawablePath_vc_strokeLineCap, -1), mStrokeLineCap);
+            mStrokeLineJoin = getStrokeLineJoin(a.getInt(R.styleable.VectorDrawablePath_vc_strokeLineJoin, -1), mStrokeLineJoin);
+            mStrokeMiterlimit = a.getFloat(R.styleable.VectorDrawablePath_vc_strokeMiterLimit, mStrokeMiterlimit);
+            mStrokeColor = a.getColor(R.styleable.VectorDrawablePath_vc_strokeColor, mStrokeColor);
+            mStrokeAlpha = a.getFloat(R.styleable.VectorDrawablePath_vc_strokeAlpha, mStrokeAlpha);
+            mStrokeWidth = a.getFloat(R.styleable.VectorDrawablePath_vc_strokeWidth, mStrokeWidth);
+            mTrimPathEnd = a.getFloat(R.styleable.VectorDrawablePath_vc_trimPathEnd, mTrimPathEnd);
+            mTrimPathOffset = a.getFloat(R.styleable.VectorDrawablePath_vc_trimPathOffset, mTrimPathOffset);
+            mTrimPathStart = a.getFloat(R.styleable.VectorDrawablePath_vc_trimPathStart, mTrimPathStart);
         }
 
         @Override

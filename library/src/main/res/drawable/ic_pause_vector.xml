@@ -19,7 +19,7 @@
             android:fillColor="#000000"
             android:pathData="@string/path_pause"
 
-            app:fillColor="#000000"
-            app:pathData="@string/path_pause"/>
+            app:vc_fillColor="#000000"
+            app:vc_pathData="@string/path_pause"/>
     </group>
 </vector>

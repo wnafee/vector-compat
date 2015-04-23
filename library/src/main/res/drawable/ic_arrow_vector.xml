@@ -19,7 +19,7 @@
             android:fillColor="#000000"
             android:pathData="@string/path_arrow"
 
-            app:fillColor="#000000"
-            app:pathData="@string/path_arrow" />
+            app:vc_fillColor="#000000"
+            app:vc_pathData="@string/path_arrow" />
     </group>
 </vector>
