@@ -14,10 +14,15 @@ package com.wnafee.vector.compat.demo;
  * the License.
  */
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+
+import com.wnafee.vector.compat.VectorDrawable;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -25,6 +30,12 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        VectorDrawable vd = VectorDrawable.getDrawable(this, R.drawable.ic_arrow_vector);
+        vd.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        
+        Button btn = (Button) findViewById(R.id.myBtn);
+        btn.setBackgroundDrawable(vd);
     }
 
 

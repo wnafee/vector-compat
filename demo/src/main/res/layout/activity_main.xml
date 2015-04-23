@@ -37,4 +37,12 @@
         app:vc_startDrawable="@drawable/abc_btn_check_to_on_mtrl_000"
         app:vc_endDrawable="@drawable/abc_btn_check_to_on_mtrl_015"/>
 
+    <Button
+        android:id="@+id/myBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="0dp"
+        android:minWidth="0dp" />
+
 </LinearLayout>
