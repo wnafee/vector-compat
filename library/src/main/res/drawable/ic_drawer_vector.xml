@@ -6,17 +6,14 @@
     android:viewportWidth="24"
     android:viewportHeight="24"
 
-    app:width="48dp"
-    app:height="48dp"
-    app:viewportWidth="24"
-    app:viewportHeight="24" >
+    app:vc_viewportWidth="24"
+    app:vc_viewportHeight="24" >
     <group
         android:name="rotationGroup"
         android:pivotX="12.0"
         android:pivotY="12.0"
         android:rotation="0.0"
 
-        app:name="rotationGroup"
         app:pivotX="12.0"
         app:pivotY="12.0"
         app:rotation="0.0">
@@ -26,7 +23,6 @@
             android:fillColor="#000000"
             android:pathData="@string/path_drawer"
 
-            app:name="v"
             app:fillColor="#000000"
             app:pathData="@string/path_drawer"/>
     </group>

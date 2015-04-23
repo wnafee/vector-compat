@@ -14,6 +14,11 @@ package com.wnafee.vector.compat;
  * the License.
  */
 
+import com.wnafee.vector.R;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -38,11 +43,6 @@ import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
-
-import com.wnafee.vector.R;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -347,12 +347,12 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
         //TODO: will not support drawable theming yet (applies to tinting mainly)
         //state.mThemeAttrs = a.extractThemeAttrs();
 
-        final int tintMode = a.getInt(R.styleable.VectorDrawable_tintMode, -1);
+        final int tintMode = a.getInt(R.styleable.VectorDrawable_vc_tintMode, -1);
         if (tintMode != -1) {
             state.mTintMode = parseTintMode(tintMode, Mode.SRC_IN);
         }
 
-        final ColorStateList tint = a.getColorStateList(R.styleable.VectorDrawable_tint);
+        final ColorStateList tint = a.getColorStateList(R.styleable.VectorDrawable_vc_tint);
         if (tint != null) {
             state.mTint = tint;
         }
@@ -361,9 +361,9 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
                 R.styleable.VectorDrawable_autoMirrored, state.mAutoMirrored);
 
         pathRenderer.mViewportWidth = a.getFloat(
-                R.styleable.VectorDrawable_viewportWidth, pathRenderer.mViewportWidth);
+                R.styleable.VectorDrawable_vc_viewportWidth, pathRenderer.mViewportWidth);
         pathRenderer.mViewportHeight = a.getFloat(
-                R.styleable.VectorDrawable_viewportHeight, pathRenderer.mViewportHeight);
+                R.styleable.VectorDrawable_vc_viewportHeight, pathRenderer.mViewportHeight);
 
         if (pathRenderer.mViewportWidth <= 0) {
             throw new XmlPullParserException(a.getPositionDescription() +
@@ -374,9 +374,9 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
         }
 
         pathRenderer.mBaseWidth = a.getDimension(
-                R.styleable.VectorDrawable_width, pathRenderer.mBaseWidth);
+                R.styleable.VectorDrawable_android_width, pathRenderer.mBaseWidth);
         pathRenderer.mBaseHeight = a.getDimension(
-                R.styleable.VectorDrawable_height, pathRenderer.mBaseHeight);
+                R.styleable.VectorDrawable_android_height, pathRenderer.mBaseHeight);
 
         if (pathRenderer.mBaseWidth <= 0) {
             throw new XmlPullParserException(a.getPositionDescription() +
@@ -386,11 +386,11 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
                     "<menu_vector> tag requires height > 0");
         }
 
-        final float alphaInFloat = a.getFloat(R.styleable.VectorDrawable_alpha,
+        final float alphaInFloat = a.getFloat(R.styleable.VectorDrawable_android_alpha,
                 pathRenderer.getAlpha());
         pathRenderer.setAlpha(alphaInFloat);
 
-        final String name = a.getString(R.styleable.VectorDrawable_name);
+        final String name = a.getString(R.styleable.VectorDrawable_android_name);
         if (name != null) {
             pathRenderer.mRootName = name;
             pathRenderer.mVGTargetsMap.put(name, pathRenderer);
@@ -1003,7 +1003,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
             mTranslateX = a.getFloat(R.styleable.VectorDrawableGroup_translateX, mTranslateX);
             mTranslateY = a.getFloat(R.styleable.VectorDrawableGroup_translateY, mTranslateY);
 
-            final String groupName = a.getString(R.styleable.VectorDrawableGroup_name);
+            final String groupName = a.getString(R.styleable.VectorDrawableGroup_android_name);
             if (groupName != null) {
                 mGroupName = groupName;
             }
@@ -1209,7 +1209,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
             // Account for any configuration changes.
             mChangingConfigurations |= getChangingConfigurations(a);
 
-            final String pathName = a.getString(R.styleable.VectorDrawableClipPath_name);
+            final String pathName = a.getString(R.styleable.VectorDrawableClipPath_android_name);
             if (pathName != null) {
                 mPathName = pathName;
             }
@@ -1318,7 +1318,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
             //TODO: will not support drawable theming yet (applies to tinting mainly)
             //mThemeAttrs = a.extractThemeAttrs();
 
-            final String pathName = a.getString(R.styleable.VectorDrawablePath_name);
+            final String pathName = a.getString(R.styleable.VectorDrawablePath_android_name);
             if (pathName != null) {
                 mPathName = pathName;
             }

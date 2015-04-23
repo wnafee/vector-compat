@@ -38,10 +38,7 @@
         </attr>
     </declare-styleable>
 
-
-    <attr name="alpha" format="float"/>
-    <attr name="name" format="string"/>
-    <attr name="tintMode" format="enum">
+    <attr name="vc_tintMode" format="enum">
         <!-- The tint is drawn on top of the drawable.
              [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
         <enum name="src_over" value="3" />
@@ -62,13 +59,11 @@
     </attr>
     <attr name="autoMirrored" format="boolean"/>
     <attr name="rotation" format="float"/>
-    <attr name="width" format="dimension"/>
-    <attr name="height" format="dimension"/>
     <attr name="pivotX" format="float|fraction" />
     <attr name="pivotY" format="float|fraction" />
     <attr name="scaleX" format="float"/>
     <attr name="scaleY" format="float"/>
-    <attr name="tint" format="color"/>
+    <attr name="vc_tint" format="color"/>
 
     <attr name="animation" format="reference" />
     <attr name="drawable" format="reference" />
@@ -88,31 +83,31 @@
     <declare-styleable name="VectorDrawable">
         <!-- If set, specifies the color to apply to the drawable as a tint. By default,
              no tint is applied. May be a color state list. -->
-        <attr name="tint" />
+        <attr name="vc_tint" />
         <!-- When a tint color is set, specifies its Porter-Duff blending mode. The
              default value is src_in, which treats the drawable as an alpha mask. -->
-        <attr name="tintMode" />
+        <attr name="vc_tintMode" />
         <!-- Indicates if the drawable needs to be mirrored when its layout direction is
              RTL (right-to-left). -->
         <attr name="autoMirrored" />
         <!-- The intrinsic width of the Vector Drawable. -->
-        <attr name="width" />
+        <attr name="android:width" />
         <!-- The intrinsic height of the Vector Drawable. -->
-        <attr name="height" />
+        <attr name="android:height" />
         <!-- The width of the canvas the drawing is on. -->
-        <attr name="viewportWidth" format="float"/>
+        <attr name="vc_viewportWidth" format="float"/>
         <!-- The height of the canvas the drawing is on. -->
-        <attr name="viewportHeight" format="float"/>
+        <attr name="vc_viewportHeight" format="float"/>
         <!-- The name of this menu_vector drawable -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The opacity of the whole menu_vector drawable, as a value between 0
              (completely transparent) and 1 (completely opaque). -->
-        <attr name="alpha" />
+        <attr name="android:alpha" />
     </declare-styleable>
     <!-- Defines the group used in VectorDrawables. -->
     <declare-styleable name="VectorDrawableGroup">
         <!-- The name of this group -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The amount to rotate the group -->
         <attr name="rotation" />
         <!-- The X coordinate of the center of rotation of a group -->
@@ -131,7 +126,7 @@
     <!-- Defines the path used in VectorDrawables. -->
     <declare-styleable name="VectorDrawablePath">
         <!-- The name of this path -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The width a path stroke -->
         <attr name="strokeWidth" format="float" />
         <!-- The color to stroke the path if not defined implies no stroke-->
@@ -170,7 +165,7 @@
     <!-- Defines the clip path used in VectorDrawables. -->
     <declare-styleable name="VectorDrawableClipPath">
         <!-- The Name of this path -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The specification of the operations that define the path  -->
         <attr name="pathData"/>
     </declare-styleable>
@@ -188,7 +183,7 @@
     <!-- Defines the target used in the AnimatedVectorDrawable. -->
     <declare-styleable name="AnimatedVectorDrawableTarget">
         <!-- The name of the target path, group or menu_vector drawable -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The animation for the target path, group or menu_vector drawable -->
         <attr name="animation" />
     </declare-styleable>

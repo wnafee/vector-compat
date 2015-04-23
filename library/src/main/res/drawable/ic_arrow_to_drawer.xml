@@ -9,13 +9,11 @@
         android:name="rotationGroup"
         android:animation="@anim/arrow_to_drawer_rotation"
 
-        app:name="rotationGroup"
         app:animation="@anim/arrow_to_drawer_rotation"/>
 
     <target
         android:name="v"
         android:animation="@anim/arrow_to_drawer_path"
 
-        app:name="v"
         app:animation="@anim/arrow_to_drawer_path" />
 </animated-vector>
