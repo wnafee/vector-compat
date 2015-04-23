@@ -57,12 +57,7 @@
              result to valid color values. Saturate(S + D) -->
         <enum name="add" value="16" />
     </attr>
-    <attr name="autoMirrored" format="boolean"/>
-    <attr name="rotation" format="float"/>
-    <attr name="pivotX" format="float|fraction" />
-    <attr name="pivotY" format="float|fraction" />
-    <attr name="scaleX" format="float"/>
-    <attr name="scaleY" format="float"/>
+    <attr name="vc_autoMirrored" format="boolean"/>
     <attr name="vc_tint" format="color"/>
 
     <attr name="animation" format="reference" />
@@ -89,7 +84,7 @@
         <attr name="vc_tintMode" />
         <!-- Indicates if the drawable needs to be mirrored when its layout direction is
              RTL (right-to-left). -->
-        <attr name="autoMirrored" />
+        <attr name="vc_autoMirrored" />
         <!-- The intrinsic width of the Vector Drawable. -->
         <attr name="android:width" />
         <!-- The intrinsic height of the Vector Drawable. -->
@@ -109,19 +104,19 @@
         <!-- The name of this group -->
         <attr name="android:name" />
         <!-- The amount to rotate the group -->
-        <attr name="rotation" />
+        <attr name="android:rotation" />
         <!-- The X coordinate of the center of rotation of a group -->
-        <attr name="pivotX" />
+        <attr name="android:pivotX" />
         <!-- The Y coordinate of the center of rotation of a group -->
-        <attr name="pivotY" />
+        <attr name="android:pivotY" />
         <!-- The amount to translate the group on X coordinate -->
-        <attr name="translateX" format="float"/>
+        <attr name="vc_translateX" format="float"/>
         <!-- The amount to translate the group on Y coordinate -->
-        <attr name="translateY" format="float"/>
+        <attr name="vc_translateY" format="float"/>
         <!-- The amount to scale the group on X coordinate -->
-        <attr name="scaleX" />
+        <attr name="android:scaleX" />
         <!-- The amount to scale the group on X coordinate -->
-        <attr name="scaleY" />
+        <attr name="android:scaleY" />
     </declare-styleable>
     <!-- Defines the path used in VectorDrawables. -->
     <declare-styleable name="VectorDrawablePath">

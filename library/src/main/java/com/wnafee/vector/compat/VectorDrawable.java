@@ -358,7 +358,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
         }
 
         state.mAutoMirrored = a.getBoolean(
-                R.styleable.VectorDrawable_autoMirrored, state.mAutoMirrored);
+                R.styleable.VectorDrawable_vc_autoMirrored, state.mAutoMirrored);
 
         pathRenderer.mViewportWidth = a.getFloat(
                 R.styleable.VectorDrawable_vc_viewportWidth, pathRenderer.mViewportWidth);
@@ -995,13 +995,13 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
             //TODO
 //            mThemeAttrs = a.extractThemeAttrs();
 
-            mRotate = a.getFloat(R.styleable.VectorDrawableGroup_rotation, mRotate);
-            mPivotX = a.getFloat(R.styleable.VectorDrawableGroup_pivotX, mPivotX);
-            mPivotY = a.getFloat(R.styleable.VectorDrawableGroup_pivotY, mPivotY);
-            mScaleX = a.getFloat(R.styleable.VectorDrawableGroup_scaleX, mScaleX);
-            mScaleY = a.getFloat(R.styleable.VectorDrawableGroup_scaleY, mScaleY);
-            mTranslateX = a.getFloat(R.styleable.VectorDrawableGroup_translateX, mTranslateX);
-            mTranslateY = a.getFloat(R.styleable.VectorDrawableGroup_translateY, mTranslateY);
+            mRotate = a.getFloat(R.styleable.VectorDrawableGroup_android_rotation, mRotate);
+            mPivotX = a.getFloat(R.styleable.VectorDrawableGroup_android_pivotX, mPivotX);
+            mPivotY = a.getFloat(R.styleable.VectorDrawableGroup_android_pivotY, mPivotY);
+            mScaleX = a.getFloat(R.styleable.VectorDrawableGroup_android_scaleX, mScaleX);
+            mScaleY = a.getFloat(R.styleable.VectorDrawableGroup_android_scaleY, mScaleY);
+            mTranslateX = a.getFloat(R.styleable.VectorDrawableGroup_vc_translateX, mTranslateX);
+            mTranslateY = a.getFloat(R.styleable.VectorDrawableGroup_vc_translateY, mTranslateY);
 
             final String groupName = a.getString(R.styleable.VectorDrawableGroup_android_name);
             if (groupName != null) {

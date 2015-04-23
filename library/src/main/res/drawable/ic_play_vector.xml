@@ -12,11 +12,7 @@
         android:name="rotationGroup"
         android:pivotX="12.0"
         android:pivotY="12.0"
-        android:rotation="90"
-
-        app:pivotX="12.0"
-        app:pivotY="12.0"
-        app:rotation="90">
+        android:rotation="90">
 
         <path
             android:name="v"
