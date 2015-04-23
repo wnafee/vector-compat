@@ -769,10 +769,10 @@ public class MorphButton extends CompoundButton {
             */
 
             // Get the max possible width given our constraints
-            widthSize = resolveAdjustedSize(w + pleft + pright, getMaxWidth(), widthMeasureSpec);
+            widthSize = resolveAdjustedSize(w + pleft + pright, Integer.MAX_VALUE, widthMeasureSpec);
 
             // Get the max possible height given our constraints
-            heightSize = resolveAdjustedSize(h + ptop + pbottom, getMaxHeight(), heightMeasureSpec);
+            heightSize = resolveAdjustedSize(h + ptop + pbottom, Integer.MAX_VALUE, heightMeasureSpec);
 
             if (desiredAspect != 0.0f) {
                 // See what our actual aspect ratio is
@@ -790,7 +790,7 @@ public class MorphButton extends CompoundButton {
 
                         // Allow the width to outgrow its original estimate if height is fixed.
                         if (!resizeHeight && !mAdjustViewBoundsCompat) {
-                            widthSize = resolveAdjustedSize(newWidth, getMaxWidth(), widthMeasureSpec);
+                            widthSize = resolveAdjustedSize(newWidth, Integer.MAX_VALUE, widthMeasureSpec);
                         }
 
                         if (newWidth <= widthSize) {
@@ -806,7 +806,7 @@ public class MorphButton extends CompoundButton {
 
                         // Allow the height to outgrow its original estimate if width is fixed.
                         if (!resizeWidth && !mAdjustViewBoundsCompat) {
-                            heightSize = resolveAdjustedSize(newHeight, getMaxHeight(),
+                            heightSize = resolveAdjustedSize(newHeight, Integer.MAX_VALUE,
                                     heightMeasureSpec);
                         }
 
