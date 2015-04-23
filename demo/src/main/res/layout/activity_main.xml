@@ -25,6 +25,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
+        android:background="?android:selectableItemBackground"
         app:vc_backgroundTint="@color/button_material_light"
         app:vc_foregroundTint="@color/accent_material_light"
         app:vc_startDrawable="@drawable/ic_play_to_pause"
