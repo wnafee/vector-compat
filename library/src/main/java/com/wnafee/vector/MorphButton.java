@@ -89,17 +89,17 @@ public class MorphButton extends CompoundButton {
         final Resources.Theme theme = context.getTheme();
         TypedArray a = theme.obtainStyledAttributes(attrs, R.styleable.MorphButton, defStyleAttr, 0);
 
-        int startResId = a.getResourceId(R.styleable.MorphButton_morphStartDrawable, -1);
-        int endResId = a.getResourceId(R.styleable.MorphButton_morphEndDrawable, -1);
-        boolean autoStart = a.getBoolean(R.styleable.MorphButton_autoStartAnimation, false);
+        int startResId = a.getResourceId(R.styleable.MorphButton_vc_startDrawable, -1);
+        int endResId = a.getResourceId(R.styleable.MorphButton_vc_endDrawable, -1);
+        boolean autoStart = a.getBoolean(R.styleable.MorphButton_vc_autoStartAnimation, false);
 
         mBackgroundTint = new TintInfo();
-        mBackgroundTint.mTintList = a.getColorStateList(R.styleable.MorphButton_backgroundTint);
+        mBackgroundTint.mTintList = a.getColorStateList(R.styleable.MorphButton_vc_backgroundTint);
         mBackgroundTint.mHasTintList = mBackgroundTint.mTintList != null;
 
 
         mBackgroundTint.mTintMode = DrawableCompat.parseTintMode(a.getInt(
-                R.styleable.MorphButton_backgroundTintMode, -1), null);
+                R.styleable.MorphButton_vc_backgroundTintMode, -1), null);
         mBackgroundTint.mHasTintMode = mBackgroundTint.mTintMode != null;
 
         a.recycle();

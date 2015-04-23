@@ -7,10 +7,4 @@
     android:valueFrom="@string/path_drawer"
     android:valueTo="@string/path_arrow"
     android:valueType="pathType"
-
-
-    app:duration="@integer/anim_duration"
-    app:propertyName="pathData"
-    app:valueFrom="@string/path_drawer"
-    app:valueTo="@string/path_arrow"
-    app:valueType="pathType" />
+    app:vc_valueType="pathType" />

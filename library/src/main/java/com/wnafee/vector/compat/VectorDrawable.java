@@ -390,7 +390,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
                 pathRenderer.getAlpha());
         pathRenderer.setAlpha(alphaInFloat);
 
-        final String name = a.getString(R.styleable.VectorDrawable_name);
+        final String name = a.getString(R.styleable.VectorDrawable_android_name);
         if (name != null) {
             pathRenderer.mRootName = name;
             pathRenderer.mVGTargetsMap.put(name, pathRenderer);
@@ -1003,7 +1003,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
             mTranslateX = a.getFloat(R.styleable.VectorDrawableGroup_translateX, mTranslateX);
             mTranslateY = a.getFloat(R.styleable.VectorDrawableGroup_translateY, mTranslateY);
 
-            final String groupName = a.getString(R.styleable.VectorDrawableGroup_name);
+            final String groupName = a.getString(R.styleable.VectorDrawableGroup_android_name);
             if (groupName != null) {
                 mGroupName = groupName;
             }
@@ -1209,7 +1209,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
             // Account for any configuration changes.
             mChangingConfigurations |= getChangingConfigurations(a);
 
-            final String pathName = a.getString(R.styleable.VectorDrawableClipPath_name);
+            final String pathName = a.getString(R.styleable.VectorDrawableClipPath_android_name);
             if (pathName != null) {
                 mPathName = pathName;
             }
@@ -1318,7 +1318,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
             //TODO: will not support drawable theming yet (applies to tinting mainly)
             //mThemeAttrs = a.extractThemeAttrs();
 
-            final String pathName = a.getString(R.styleable.VectorDrawablePath_name);
+            final String pathName = a.getString(R.styleable.VectorDrawablePath_android_name);
             if (pathName != null) {
                 mPathName = pathName;
             }

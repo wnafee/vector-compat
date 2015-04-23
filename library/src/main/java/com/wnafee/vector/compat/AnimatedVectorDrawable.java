@@ -224,7 +224,7 @@ public class AnimatedVectorDrawable extends DrawableCompat implements Animatable
                     final TypedArray a = obtainAttributes(res, theme, attrs,
                             R.styleable.AnimatedVectorDrawable);
                     int drawableRes = a.getResourceId(
-                            R.styleable.AnimatedVectorDrawable_drawable, 0);
+                            R.styleable.AnimatedVectorDrawable_android_drawable, 0);
                     if (drawableRes != 0) {
                         VectorDrawable vectorDrawable = (VectorDrawable) VectorDrawable.create(res, drawableRes).mutate();
                         vectorDrawable.setAllowCaching(false);
@@ -236,10 +236,10 @@ public class AnimatedVectorDrawable extends DrawableCompat implements Animatable
                     final TypedArray a = obtainAttributes(res, theme, attrs,
                             R.styleable.AnimatedVectorDrawableTarget);
                     final String target = a.getString(
-                            R.styleable.AnimatedVectorDrawableTarget_name);
+                            R.styleable.AnimatedVectorDrawableTarget_android_name);
 
                     int id = a.getResourceId(
-                            R.styleable.AnimatedVectorDrawableTarget_animation, 0);
+                            R.styleable.AnimatedVectorDrawableTarget_android_animation, 0);
                     if (id != 0) {
                         //path animators require separate handling
                         Animator objectAnimator;

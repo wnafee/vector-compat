@@ -7,10 +7,4 @@
     android:valueFrom="@string/path_pause"
     android:valueTo="@string/path_play"
     android:valueType="pathType"
-
-
-    app:duration="@integer/anim_duration"
-    app:propertyName="pathData"
-    app:valueFrom="@string/path_pause"
-    app:valueTo="@string/path_play"
-    app:valueType="pathType"/>
+    app:vc_valueType="pathType" />

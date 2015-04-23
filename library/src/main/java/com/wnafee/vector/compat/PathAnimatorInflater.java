@@ -195,7 +195,7 @@ public class PathAnimatorInflater {
         parseAnimatorFromTypeArray(anim, arrayAnimator, arrayObjectAnimator);
 
         final int resId =
-                arrayAnimator.getResourceId(R.styleable.Animator_interpolator, 0);
+                arrayAnimator.getResourceId(R.styleable.Animator_android_interpolator, 0);
         if (resId > 0) {
             anim.setInterpolator(AnimationUtils.loadInterpolator(c, resId));
         }
@@ -216,11 +216,11 @@ public class PathAnimatorInflater {
      */
     private static void parseAnimatorFromTypeArray(ValueAnimator anim,
                                                    TypedArray arrayAnimator, TypedArray arrayObjectAnimator) {
-        long duration = arrayAnimator.getInt(R.styleable.Animator_duration, 300);
+        long duration = arrayAnimator.getInt(R.styleable.Animator_android_duration, 300);
 
-        long startDelay = arrayAnimator.getInt(R.styleable.Animator_startOffset, 0);
+        long startDelay = arrayAnimator.getInt(R.styleable.Animator_android_startOffset, 0);
 
-        int valueType = arrayAnimator.getInt(R.styleable.Animator_valueType, 0);
+        int valueType = arrayAnimator.getInt(R.styleable.Animator_vc_valueType, 0);
 
         TypeEvaluator evaluator = null;
 
@@ -234,13 +234,13 @@ public class PathAnimatorInflater {
         anim.setDuration(duration);
         anim.setStartDelay(startDelay);
 
-        if (arrayAnimator.hasValue(R.styleable.Animator_repeatCount)) {
+        if (arrayAnimator.hasValue(R.styleable.Animator_android_repeatCount)) {
             anim.setRepeatCount(
-                    arrayAnimator.getInt(R.styleable.Animator_repeatCount, 0));
+                    arrayAnimator.getInt(R.styleable.Animator_android_repeatCount, 0));
         }
-        if (arrayAnimator.hasValue(R.styleable.Animator_repeatMode)) {
+        if (arrayAnimator.hasValue(R.styleable.Animator_android_repeatMode)) {
             anim.setRepeatMode(
-                    arrayAnimator.getInt(R.styleable.Animator_repeatMode,
+                    arrayAnimator.getInt(R.styleable.Animator_android_repeatMode,
                             ValueAnimator.RESTART));
         }
         if (evaluator != null) {
@@ -262,8 +262,8 @@ public class PathAnimatorInflater {
     private static TypeEvaluator setupAnimatorForPath(ValueAnimator anim,
                                                       TypedArray arrayAnimator) {
         TypeEvaluator evaluator = null;
-        String fromString = arrayAnimator.getString(R.styleable.Animator_valueFrom);
-        String toString = arrayAnimator.getString(R.styleable.Animator_valueTo);
+        String fromString = arrayAnimator.getString(R.styleable.Animator_android_valueFrom);
+        String toString = arrayAnimator.getString(R.styleable.Animator_android_valueTo);
         PathParser.PathDataNode[] nodesFrom = PathParser.createNodesFromPathData(fromString);
         PathParser.PathDataNode[] nodesTo = PathParser.createNodesFromPathData(toString);
 
@@ -300,7 +300,7 @@ public class PathAnimatorInflater {
     private static void setupObjectAnimator(ValueAnimator anim, TypedArray arrayObjectAnimator) {
         ObjectAnimator oa = (ObjectAnimator) anim;
         String propertyName =
-                arrayObjectAnimator.getString(R.styleable.PropertyAnimator_propertyName);
+                arrayObjectAnimator.getString(R.styleable.PropertyAnimator_android_propertyName);
         oa.setPropertyName(propertyName);
     }
 

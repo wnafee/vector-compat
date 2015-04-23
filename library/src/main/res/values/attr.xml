@@ -10,14 +10,14 @@
     </declare-styleable>
 
     <declare-styleable name="MorphButton">
-        <attr name="morphStartDrawable" format="reference"/>
-        <attr name="morphEndDrawable" format="reference"/>
-        <attr name="autoStartAnimation" format="boolean"/>
+        <attr name="vc_startDrawable" format="reference"/>
+        <attr name="vc_endDrawable" format="reference"/>
+        <attr name="vc_autoStartAnimation" format="boolean"/>
         <!-- Tint to apply to the background. -->
-        <attr name="backgroundTint" format="color" />
+        <attr name="vc_backgroundTint" format="color" />
 
         <!-- Blending mode used to apply the background tint. -->
-        <attr name="backgroundTintMode">
+        <attr name="vc_backgroundTintMode">
             <!-- The tint is drawn on top of the drawable.
                  [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
             <enum name="src_over" value="3" />
@@ -39,8 +39,8 @@
     </declare-styleable>
 
 
+    <attr name="vc_pathData" format="string"/>
     <attr name="alpha" format="float"/>
-    <attr name="name" format="string"/>
     <attr name="tintMode" format="enum">
         <!-- The tint is drawn on top of the drawable.
              [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
@@ -70,15 +70,6 @@
     <attr name="scaleY" format="float"/>
     <attr name="tint" format="color"/>
 
-    <attr name="animation" format="reference" />
-    <attr name="drawable" format="reference" />
-
-    <attr name="duration" format="integer"/>
-    <attr name="interpolator" format="reference"/>
-    <attr name="startOffset" format="integer"/>
-    <attr name="repeatCount" format="integer">
-        <enum name="infinite" value="-1" />
-    </attr>
 
     <!-- ========================== -->
     <!--   VectorDrawable class   -->
@@ -104,7 +95,7 @@
         <!-- The height of the canvas the drawing is on. -->
         <attr name="viewportHeight" format="float"/>
         <!-- The name of this menu_vector drawable -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The opacity of the whole menu_vector drawable, as a value between 0
              (completely transparent) and 1 (completely opaque). -->
         <attr name="alpha" />
@@ -112,7 +103,7 @@
     <!-- Defines the group used in VectorDrawables. -->
     <declare-styleable name="VectorDrawableGroup">
         <!-- The name of this group -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The amount to rotate the group -->
         <attr name="rotation" />
         <!-- The X coordinate of the center of rotation of a group -->
@@ -131,7 +122,7 @@
     <!-- Defines the path used in VectorDrawables. -->
     <declare-styleable name="VectorDrawablePath">
         <!-- The name of this path -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The width a path stroke -->
         <attr name="strokeWidth" format="float" />
         <!-- The color to stroke the path if not defined implies no stroke-->
@@ -170,7 +161,7 @@
     <!-- Defines the clip path used in VectorDrawables. -->
     <declare-styleable name="VectorDrawableClipPath">
         <!-- The Name of this path -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The specification of the operations that define the path  -->
         <attr name="pathData"/>
     </declare-styleable>
@@ -183,14 +174,14 @@
     <!-- Define the AnimatedVectorDrawable. -->
     <declare-styleable name="AnimatedVectorDrawable">
         <!-- The static menu_vector drawable. -->
-        <attr name="drawable" />
+        <attr name="android:drawable" />
     </declare-styleable>
     <!-- Defines the target used in the AnimatedVectorDrawable. -->
     <declare-styleable name="AnimatedVectorDrawableTarget">
         <!-- The name of the target path, group or menu_vector drawable -->
-        <attr name="name" />
+        <attr name="android:name" />
         <!-- The animation for the target path, group or menu_vector drawable -->
-        <attr name="animation" />
+        <attr name="android:animation" />
     </declare-styleable>
 
 
@@ -200,27 +191,27 @@
     <eat-comment />
     <declare-styleable name="Animator">
         <!-- Defines the interpolator used to smooth the animation movement in time. -->
-        <attr name="interpolator" />
+        <attr name="android:interpolator" />
         <!-- Amount of time (in milliseconds) for the animation to run. -->
-        <attr name="duration" />
+        <attr name="android:duration" />
         <!-- Delay in milliseconds before the animation runs, once start time is reached. -->
-        <attr name="startOffset"/>
+        <attr name="android:startOffset"/>
         <!-- Defines how many times the animation should repeat. The default value is 0. -->
-        <attr name="repeatCount" />
+        <attr name="android:repeatCount" />
         <!-- Defines the animation behavior when it reaches the end and the repeat count is
              greater than 0 or infinite. The default value is restart. -->
-        <attr name="repeatMode">
-            <!-- The animation starts again from the beginning. -->
-            <enum name="restart" value="1" />
-            <!-- The animation plays backward. -->
-            <enum name="reverse" value="2" />
-        </attr>
+        <attr name="android:repeatMode" />
+            <!--&lt;!&ndash; The animation starts again from the beginning. &ndash;&gt;-->
+            <!--<enum name="restart" value="1" />-->
+            <!--&lt;!&ndash; The animation plays backward. &ndash;&gt;-->
+            <!--<enum name="reverse" value="2" />-->
+        <!--</attr>-->
         <!-- Value the animation starts from. -->
-        <attr name="valueFrom" format="float|integer|color|dimension|string"/>
+        <attr name="android:valueFrom" />
         <!-- Value the animation animates to. -->
-        <attr name="valueTo" format="float|integer|color|dimension|string"/>
+        <attr name="android:valueTo" />
         <!-- The type of valueFrom and valueTo. -->
-        <attr name="valueType">
+        <attr name="vc_valueType">
             <!-- valueFrom and valueTo are floats. This is the default value is valueType is
                  unspecified. Note that if either valueFrom or valueTo represent colors
                  (beginning with "#"), then this attribute is ignored and the color values are
@@ -240,13 +231,9 @@
     <eat-comment />
     <declare-styleable name="PropertyAnimator">
         <!-- Name of the property being animated. -->
-        <attr name="propertyName" format="string"/>
-        <!-- Name of the property being animated as the X coordinate of the pathData. -->
-        <attr name="propertyXName" format="string"/>
-        <!-- Name of the property being animated as the Y coordinate of the pathData. -->
-        <attr name="propertyYName" format="string"/>
+        <attr name="android:propertyName" />
         <!-- The path used to animate the properties in the ObjectAnimator -->
-        <attr name="pathData"/>
+        <attr name="vc_pathData"/>
     </declare-styleable>
 
 </resources>

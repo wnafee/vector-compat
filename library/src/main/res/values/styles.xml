@@ -1,9 +1,9 @@
 <resources>
 
     <style name="Widget.MorphButton" parent="@android:style/Widget.Holo.Button.Toggle">
-        <item name="morphStartDrawable">@null</item>
-        <item name="morphEndDrawable">@null</item>
-        <item name="autoStartAnimation">false</item>
+        <item name="vc_startDrawable">@null</item>
+        <item name="vc_endDrawable">@null</item>
+        <item name="vc_autoStartAnimation">false</item>
         <item name="android:minHeight">0dp</item>
         <item name="android:minWidth">0dp</item>
     </style>

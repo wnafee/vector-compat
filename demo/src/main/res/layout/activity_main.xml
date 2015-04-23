@@ -15,26 +15,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        app:backgroundTint="#1565C0"
-        app:morphStartDrawable="@drawable/ic_arrow_to_drawer"
-        app:morphEndDrawable="@drawable/ic_drawer_to_arrow"/>
+        app:vc_backgroundTint="#1565C0"
+        app:vc_startDrawable="@drawable/ic_arrow_to_drawer"
+        app:vc_endDrawable="@drawable/ic_drawer_to_arrow"/>
 
     <com.wnafee.vector.MorphButton
         android:id="@+id/playBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:backgroundTint="#6A1B9A"
-        app:morphStartDrawable="@drawable/ic_play_vector"
-        app:morphEndDrawable="@drawable/ic_pause_vector"/>
+        app:vc_backgroundTint="#6A1B9A"
+        app:vc_startDrawable="@drawable/ic_play_vector"
+        app:vc_endDrawable="@drawable/ic_pause_vector"/>
 
     <com.wnafee.vector.MorphButton
         android:id="@+id/checkBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:backgroundTint="#6A1B9A"
-        app:morphStartDrawable="@drawable/abc_btn_check_to_on_mtrl_000"
-        app:morphEndDrawable="@drawable/abc_btn_check_to_on_mtrl_015"/>
+        app:vc_backgroundTint="#6A1B9A"
+        app:vc_startDrawable="@drawable/abc_btn_check_to_on_mtrl_000"
+        app:vc_endDrawable="@drawable/abc_btn_check_to_on_mtrl_015"/>
 
 </LinearLayout>
