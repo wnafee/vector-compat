@@ -29,6 +29,15 @@
         app:vc_endDrawable="@drawable/ic_pause_to_play"/>
 
     <com.wnafee.vector.MorphButton
+        android:id="@+id/stopBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:vc_backgroundTint="@color/accent_material_light"
+        app:vc_startDrawable="@drawable/ic_stop_to_play"
+        app:vc_endDrawable="@drawable/ic_play_to_stop"/>
+
+    <com.wnafee.vector.MorphButton
         android:id="@+id/checkBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
