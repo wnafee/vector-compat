@@ -12,19 +12,22 @@
 
     <com.wnafee.vector.MorphButton
         android:id="@+id/drawerBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="top|center_horizontal"
-        app:vc_backgroundTint="#1565C0"
+        app:vc_backgroundTint="#ff0000"
+        app:vc_foregroundTint="#1565C0"
         app:vc_startDrawable="@drawable/ic_arrow_to_drawer"
         app:vc_endDrawable="@drawable/ic_drawer_to_arrow"/>
 
     <com.wnafee.vector.MorphButton
         android:id="@+id/playBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        app:vc_backgroundTint="#6A1B9A"
+        android:background="?android:selectableItemBackground"
+        app:vc_backgroundTint="@color/button_material_light"
+        app:vc_foregroundTint="@color/accent_material_light"
         app:vc_startDrawable="@drawable/ic_play_to_pause"
         app:vc_endDrawable="@drawable/ic_pause_to_play"/>
 
@@ -39,8 +42,8 @@
 
     <com.wnafee.vector.MorphButton
         android:id="@+id/checkBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         app:vc_backgroundTint="#6A1B9A"
         app:vc_startDrawable="@drawable/abc_btn_check_to_on_mtrl_000"

@@ -4,8 +4,6 @@
         <item name="vc_startDrawable">@null</item>
         <item name="vc_endDrawable">@null</item>
         <item name="vc_autoStartAnimation">false</item>
-        <item name="android:minHeight">0dp</item>
-        <item name="android:minWidth">0dp</item>
     </style>
 
 </resources>
