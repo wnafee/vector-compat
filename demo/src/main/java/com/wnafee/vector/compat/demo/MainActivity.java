@@ -14,6 +14,8 @@ package com.wnafee.vector.compat.demo;
  * the License.
  */
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -23,6 +25,7 @@ import android.widget.LinearLayout.LayoutParams;
 
 import com.wnafee.vector.MorphButton;
 
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends ActionBarActivity {
 
     @Override

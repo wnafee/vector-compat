@@ -17,7 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        android:background="?android:selectableItemBackground"
         app:vc_backgroundTint="#ff0000"
         app:vc_foregroundTint="#1565C0"
         app:vc_startDrawable="@drawable/ic_arrow_to_drawer"
@@ -28,9 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="?android:selectableItemBackground"
-        app:vc_backgroundTint="@color/button_material_light"
-        app:vc_foregroundTint="@color/accent_material_light"
+        app:vc_backgroundTint="@color/accent_material_light"
+        app:vc_foregroundTint="@color/button_material_light"
         app:vc_startDrawable="@drawable/ic_play_to_pause"
         app:vc_endDrawable="@drawable/ic_pause_to_play"/>
 
@@ -39,8 +37,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="?android:selectableItemBackground"
-        app:vc_backgroundTint="@color/accent_material_light"
         app:vc_foregroundTint="#6A1B9A"
         app:vc_startDrawable="@drawable/ic_stop_to_play"
         app:vc_endDrawable="@drawable/ic_play_to_stop"/>
