@@ -19,6 +19,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 
 import com.wnafee.vector.MorphButton;
 
@@ -32,6 +33,9 @@ public class MainActivity extends ActionBarActivity {
 
         // Example of adding MorphButton in java
         MorphButton mb = new MorphButton(this);
+        LayoutParams p = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        mb.setLayoutParams(p);
+
         mb.setBackgroundTintList(getResources().getColorStateList(R.color.background_tint_color));
         mb.setForegroundTintList(getResources().getColorStateList(R.color.foreground_tint_color));
         mb.setStartDrawable(R.drawable.ic_pause_to_play);
