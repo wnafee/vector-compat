@@ -27,16 +27,15 @@ android {
     ...
 }
 dependencies {
-    compile 'com.wnafee:vector-compat:1.0.2'
+    compile 'com.wnafee:vector-compat:1.0.5'
     ...
 }
 ```
 ## Usage
 `VectorDrawable` and `AnimatedVectorDrawable` xml drawable syntax is exactly the same as the lollipop documentation (can be seen [here][1] and [here][2] respectively). With 2 caveats: 
-* All attributes under the `<vector>` and `<animated-vector>` nodes must be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
-* Any `pathType` anim xml attributes must be listed twice, once for the `android:` namespace and once for the local namespace (e.g. `app:`).
+* Some attributes under the `<vector>` nodes must be listed twice, once for the `android:` namespace and once for the local namespace with a `vc_` prefix (e.g. `app:vc_fillColor`). See example [here][4]. (For a complete list of `vc_` prefixed attributes see the [attr.xml][6] to see all attributes)
+* Any `pathType` anim xml must have the `android:valueType="pathType"` in addition to `app:vc_valueType="pathType"` to allow for lollipop implementation fallback. See example [here][5].
 
-Listing those attributes under the both android and local namespaces allows lollipop implementation fallback. See [this][4] and [this][5] sample for `vector` and `pathType` animations provided in the library.
 
 #### Inflation
 `VectorDrawable` and `AnimatedVectorDrawable` in this support library can be inflated in one of 2 ways:
@@ -52,6 +51,7 @@ AnimatedVectorDrawable.getDrawable(context, R.drawable.ic_arrow_to_menu_animated
 // This will inflate any drawable and will auto-fallback to the lollipop implementation on api 21+ devices
 ResourcesCompat.getDrawable(context, R.drawable.any_drawable);
 ````
+_**It is recommended to always use `ResourcesCompat.getDrawable()` as this handles Lollipop fallback when applicable. This allows the system to cache Drawable ConstantState and hence is more efficient**_
 
 * directly from the `MorphButton` view in xml:
 ```xml
@@ -64,11 +64,44 @@ ResourcesCompat.getDrawable(context, R.drawable.any_drawable);
     app:morphEndDrawable="@drawable/ic_play_to_pause" /> 
 ```
 #### MorphButton
-`MorphButton` is a `CompoundButton` with 2 states: `MorphState.START` or `MorphState.END`. The attributes `morphStartDrawable` and `morphEndDrawable` define which drawables to use as the button background depending on the button's state. These can be any type of drawable (e.g. `BitmapDrawable`, `ColorDrawable`, `VectorDrawable`, `AnimatedVectorDrawable` etc.)
+`MorphButton` is a `CompoundButton` with 2 states: `MorphState.START` or `MorphState.END`. The attributes `vc_startDrawable` and `vc_endDrawable` define which foreground drawables to use for the button depending on the button's state. These can be any type of drawable (e.g. `BitmapDrawable`, `ColorDrawable`, `VectorDrawable`, `AnimatedVectorDrawable` etc.)
 
-Button clicks will toggle between the drawable states. If the drawables happen to implement the [`Animatable`][3] interface (e.g. `AnimatedVectorDrawable` or `AnimationDrawable`) then `start()` will be automatically called to animate between the start and end drawables defined in xml.
+To use MorphButton in your app, make sure to include the `morphButtonStyle` item in your base app theme:
+```xml
+<style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="morphButtonStyle">@style/Widget.MorphButton</item>
+</style>
+```
 
- Button state can also be set manually via `setState()` methods:
+`MorphButtons` allow you to tint your foreground drawables (i.e. `vc_startDrawable` and `vc_endDrawable`) and background drawable separately in both xml and java. See the following examples for defining `MorphButtons`:
+
+**XML**:
+```xml
+<com.wnafee.vector.MorphButton
+    android:id="@+id/drawerBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scaleType="fitCenter"
+    app:vc_backgroundTint="#f50057"
+    app:vc_foregroundTint="#3F51B5"
+    app:vc_startDrawable="@drawable/ic_arrow_to_drawer"
+    app:vc_endDrawable="@drawable/ic_drawer_to_arrow"/>
+```
+
+**Java**:
+```java
+    MorphButton mb = new MorphButton(this);
+    mb.setBackgroundTintList(getResources().getColorStateList(R.color.background_tint_color));
+    mb.setForegroundTintList(ColorStateList.valueOf(Color.RED));
+    mb.setStartDrawable(R.drawable.ic_pause_to_play);
+    mb.setEndDrawable(R.drawable.ic_play_to_pause);
+    mb.setState(MorphState.END);
+```
+The `scaleType` attribute defines how to scale the foreground drawable to fill the button's background. This is the same as [`ImageView.ScaleType`][7] which you can take a look at [here][7].
+
+Button clicks will toggle between the foreground drawables. If the drawables happen to implement the [`Animatable`][3] interface (e.g. `AnimatedVectorDrawable` or `AnimationDrawable`) then `start()` will be automatically called to animate between the start and end drawables defined in xml.
+ 
+ MorphButton states can be set manually via `setState()` methods:
 ```java
 // transition with no animation
 myMorphButton.setState(MorphState.END) 
@@ -76,6 +109,18 @@ myMorphButton.setState(MorphState.END)
 // ... or transition with animation if drawable is Animatable
 myMorphButton.setState(MorphState.START, true) 
 ````
+
+If you need to be informed of button state changes you need to add an `OnStateChangedListener`:
+```java
+MyMorphButton.setOnStateChangedListener(new OnStateChangedListener() {
+    @Override
+    public void onStateChanged(MorphState changedTo, boolean isAnimating) {
+        // changeTo is the new state
+        // isAnimating = true if the state changed with animation
+        // Do something here
+    }
+});
+```
 
 ## License
 
@@ -98,3 +143,5 @@ myMorphButton.setState(MorphState.START, true)
 [3]: http://developer.android.com/reference/android/graphics/drawable/Animatable.html
 [4]: https://github.com/wnafee/vector-compat/blob/master/library/src/main/res/drawable/ic_arrow_vector.xml
 [5]: https://github.com/wnafee/vector-compat/blob/master/library/src/main/res/anim/arrow_to_drawer_path.xml
+[6]: https://github.com/wnafee/vector-compat/blob/master/library/src/main/res/values/attr.xml
+[7]: http://developer.android.com/reference/android/widget/ImageView.ScaleType.html
