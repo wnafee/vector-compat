@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -53,13 +54,5 @@
         app:vc_backgroundTint="#6A1B9A"
         app:vc_startDrawable="@drawable/abc_btn_check_to_on_mtrl_000"
         app:vc_endDrawable="@drawable/abc_btn_check_to_on_mtrl_015"/>
-
-    <Button
-        android:id="@+id/myBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:minHeight="0dp"
-        android:minWidth="0dp" />
 
 </LinearLayout>
