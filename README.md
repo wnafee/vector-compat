@@ -17,12 +17,18 @@ _**The goal is to, with time, create repo of commonly used morph animations that
 If you have requests for particular morph animations, please open a [new issue](https://github.com/wnafee/vector-compat/issues/new) and I'll work on adding them to the library. You are also welcome to create a [pull request](https://github.com/wnafee/vector-compat/compare) if you've created some of your own. **_Please contribute_** :)
 
 ## Download
-Add the vector-compat dependency to your `build.gradle` file:
+Add the vector-compat dependency to your `build.gradle` file and make sure to use `buildToolsVersion` 22 or higher:
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.wnafee/vector-compat.svg)](http://search.maven.org/#search%7Cga%7C1%7Cvector-compat)
 ```groovy
+android {
+    // use version 22 or higher
+    buildToolsVersion "22.0.1"
+    ...
+}
 dependencies {
     compile 'com.wnafee:vector-compat:1.0.2'
+    ...
 }
 ```
 ## Usage
