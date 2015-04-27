@@ -227,9 +227,20 @@ public class MorphButton extends CompoundButton {
     @Override
     public void refreshDrawableState() {
         super.refreshDrawableState();
+        refreshCurrentDrawable();
+    }
 
+    private void refreshCurrentDrawable() {
         if (mCurrentDrawable != null) {
             mCurrentDrawable.setState(getDrawableState());
+        }
+    }
+
+    @Override
+    public void jumpDrawablesToCurrentState() {
+        super.jumpDrawablesToCurrentState();
+        if (mCurrentDrawable != null) {
+            mCurrentDrawable.jumpToCurrentState();
         }
     }
 
