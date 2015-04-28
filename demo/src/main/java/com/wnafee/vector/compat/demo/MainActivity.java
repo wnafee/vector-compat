@@ -22,8 +22,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.Toast;
 
 import com.wnafee.vector.MorphButton;
+import com.wnafee.vector.MorphButton.MorphState;
+import com.wnafee.vector.MorphButton.OnStateChangedListener;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends ActionBarActivity {
@@ -43,6 +46,13 @@ public class MainActivity extends ActionBarActivity {
         mb.setForegroundTintList(getResources().getColorStateList(R.color.foreground_tint_color));
         mb.setStartDrawable(R.drawable.ic_pause_to_play);
         mb.setEndDrawable(R.drawable.ic_play_to_pause);
+        mb.setOnStateChangedListener(new OnStateChangedListener() {
+            @Override
+            public void onStateChanged(MorphState changedTo, boolean isAnimating) {
+                // Do something here
+                Toast.makeText(MainActivity.this, "Changed to: " + changedTo, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         LinearLayout ll = (LinearLayout) findViewById(R.id.base_view);
         ll.addView(mb);
