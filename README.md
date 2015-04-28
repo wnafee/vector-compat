@@ -1,5 +1,5 @@
 # vector-compat
-A support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] introduced in Lollipop with fully backwards compatible tint support (supports api 14+ so far)
+A support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] introduced in Lollipop with fully backwards compatible tint support (api 14+ so far)
 
 `vector-compat` provides the necessary tools to make animated icons similar to the new drawer hamburger icon that morphs to a back arrow when clicked. Any other morph animation between icons can be defined _purely in `xml` (**no java code required**)_ and the library takes care of the transformation animation. Because they are in vector format, these drawables can be of any height and width with no resulting pixelation.
 
