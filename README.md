@@ -8,16 +8,17 @@ A support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] in
 The library will transparently fall back to the lollipop implementation of `VectorDrawable` and `AnimatedVectorDrawable` on api 21+ devices
 
 ##Commonly used animations
-The library packs some ready-made morph animations developers can use in their code with `MorphButton`. More will be added soon as this is a work-in-progress. The library has following morph animations :
-* Play-pause morph animation (bi-directional morph)
+The library packs some ready-made morph animations developers can use in their code with `MorphButton`. More will be added soon as this is a work-in-progress. The library has the following morph animations :
+* Play-Pause morph animation (bi-directional morph)
+* Play-Stop morph animation (bi-directional morph)
 * Arrow-Hamburger menu morph animation (bi-directional morph)
 
-_**The goal is to, with time, create repo of commonly used morph animations that lots of developers find useful.**_
+**The goal is to, with time, create a repo of commonly used morph animations that lots of developers find useful.**
 
 If you have requests for particular morph animations, please open a [new issue](https://github.com/wnafee/vector-compat/issues/new) and I'll work on adding them to the library. You are also welcome to create a [pull request](https://github.com/wnafee/vector-compat/compare) if you've created some of your own. **_Please contribute_** :)
 
 ## Download
-Add the vector-compat dependency to your `build.gradle` file and make sure to use `buildToolsVersion` 22 or higher:
+Add the `vector-compat` dependency to your `build.gradle` file and make sure to use `buildToolsVersion` 22 or higher:
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.wnafee/vector-compat.svg)](http://search.maven.org/#search%7Cga%7C1%7Cvector-compat)
 ```groovy
@@ -33,7 +34,7 @@ dependencies {
 ```
 ## Usage
 `VectorDrawable` and `AnimatedVectorDrawable` xml drawable syntax is exactly the same as the lollipop documentation (can be seen [here][1] and [here][2] respectively). With 2 caveats: 
-* Some attributes under the `<vector>` nodes must be listed twice, once for the `android:` namespace and once for the local namespace with a `vc_` prefix (e.g. `app:vc_fillColor`). See example [here][4]. (For a complete list of `vc_` prefixed attributes see the [attr.xml][6] to see all attributes)
+* Some attributes under the `<vector>` nodes must be listed once for the `android:` namespace and once for the local namespace with a `vc_` prefix (e.g. `app:vc_fillColor`). See example [here][4]. (For a complete list of `vc_` prefixed attributes see [attr.xml][6] for )
 * Any `pathType` anim xml must have the `android:valueType="pathType"` in addition to `app:vc_valueType="pathType"` to allow for lollipop implementation fallback. See example [here][5].
 
 
