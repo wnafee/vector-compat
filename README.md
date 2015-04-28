@@ -51,7 +51,7 @@ AnimatedVectorDrawable.getDrawable(context, R.drawable.ic_arrow_to_menu_animated
 // This will inflate any drawable and will auto-fallback to the lollipop implementation on api 21+ devices
 ResourcesCompat.getDrawable(context, R.drawable.any_drawable);
 ````
-_**It is recommended to always use `ResourcesCompat.getDrawable()` as this handles Lollipop fallback when applicable. This allows the system to cache Drawable ConstantState and hence is more efficient**_
+_If inflating the Drawable in java code, it is recommended to always use `ResourcesCompat.getDrawable()` as this handles Lollipop fallback when applicable. This allows the system to cache Drawable ConstantState and hence is more efficient_
 
 * directly from the `MorphButton` view in xml:
 ```xml
@@ -60,8 +60,8 @@ _**It is recommended to always use `ResourcesCompat.getDrawable()` as this handl
     android:id="@+id/playPauseBtn"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:morphStartDrawable="@drawable/ic_pause_to_play"
-    app:morphEndDrawable="@drawable/ic_play_to_pause" /> 
+    app:vc_startDrawable="@drawable/ic_pause_to_play"
+    app:vc_endDrawable="@drawable/ic_play_to_pause" /> 
 ```
 #### MorphButton
 `MorphButton` is a `CompoundButton` with 2 states: `MorphState.START` or `MorphState.END`. The attributes `vc_startDrawable` and `vc_endDrawable` define which foreground drawables to use for the button depending on the button's state. These can be any type of drawable (e.g. `BitmapDrawable`, `ColorDrawable`, `VectorDrawable`, `AnimatedVectorDrawable` etc.)
