@@ -3,7 +3,9 @@ A support library for [`VectorDrawable`][1] and [`AnimatedVectorDrawable`][2] in
 
 `vector-compat` provides the necessary tools to make animated icons similar to the new drawer hamburger icon that morphs to a back arrow when clicked. Any other morph animation between icons can be defined _purely in `xml` (**no java code required**)_ and the library takes care of the transformation animation. Because they are in vector format, these drawables can be of any height and width with no resulting pixelation.
 
-![Example](https://github.com/wnafee/vector-compat/blob/master/demo.gif)
+![Example](https://github.com/wnafee/vector-compat/blob/master/artwork/example.gif)
+![Example 1](https://github.com/wnafee/vector-compat/blob/master/artwork/example_1.gif)
+![Example 2](https://github.com/wnafee/vector-compat/blob/master/artwork/example_2.gif)
 
 The library will transparently fall back to the lollipop implementation of `VectorDrawable` and `AnimatedVectorDrawable` on api 21+ devices
 
