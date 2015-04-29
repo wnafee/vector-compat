@@ -29,7 +29,7 @@ public class ResourcesCompat {
         Drawable d;
         try {
             if (LOLLIPOP) {
-                d = c.getResources().getDrawable(resId, null);
+                d = c.getResources().getDrawable(resId, c.getTheme());
             } else {
                 d = c.getResources().getDrawable(resId);
             }
