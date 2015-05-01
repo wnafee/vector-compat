@@ -5,6 +5,7 @@
         <item name="colorPrimary">#3F51B5</item>
         <item name="colorPrimaryDark">#303F9F</item>
         <item name="colorAccent">#FF4081</item>
+        <item name="colorControlHighlight">?attr/colorPrimaryDark</item>
         <item name="morphButtonStyle">@style/Widget.MorphButton</item>
     </style>
 
