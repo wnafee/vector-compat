@@ -34,6 +34,11 @@ dependencies {
     ...
 }
 ```
+## Proguard
+If you're using proguard for code shrinking and obfuscation, make sure to add the following:
+```proguard
+   -keep class com.wnafee.vector.** { *; }
+```
 ## Usage
 `VectorDrawable` and `AnimatedVectorDrawable` xml drawable syntax is exactly the same as the lollipop documentation (can be seen [here][1] and [here][2] respectively). With 2 caveats: 
 * Some attributes under the `<vector>` nodes must be listed once for the `android:` namespace and once for the local namespace with a `vc_` prefix (e.g. `app:vc_fillColor`). See example [here][4]. (For a complete list of `vc_` prefixed attributes see [attr.xml][6] for )
@@ -123,12 +128,6 @@ MyMorphButton.setOnStateChangedListener(new OnStateChangedListener() {
         // Do something here
     }
 });
-```
-
-## Proguard
-If you're using proguard for code shrinking and obfuscation, make sure to add the following:
-```proguard
-   -keep class com.wnafee.vector.** { *; }
 ```
 
 ## License
