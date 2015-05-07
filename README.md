@@ -125,6 +125,12 @@ MyMorphButton.setOnStateChangedListener(new OnStateChangedListener() {
 });
 ```
 
+## Proguard
+If you're using proguard for code shrinking and obfuscation, make sure to add the following:
+```proguard
+   -keep class com.wnafee.vector.** { *; }
+```
+
 ## License
 
     Copyright 2015 Wael Nafee
