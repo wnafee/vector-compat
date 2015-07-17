@@ -46,7 +46,9 @@ public class PathAnimatorInflater {
     private static final int TOGETHER = 0;
     private static final int SEQUENTIALLY = 1;
 
-    private static final int VALUE_TYPE_PATH = 2;
+    private static final int VALUE_TYPE_FLOAT = 0;
+    private static final int VALUE_TYPE_INT   = 1;
+    private static final int VALUE_TYPE_PATH  = 2;
 
     private static final boolean DBG_ANIMATOR_INFLATER = false;
 
@@ -220,15 +222,34 @@ public class PathAnimatorInflater {
 
         long startDelay = arrayAnimator.getInt(R.styleable.Animator_android_startOffset, 0);
 
-        int valueType = arrayAnimator.getInt(R.styleable.Animator_vc_valueType, 0);
+        int valueType = arrayAnimator.getInt(R.styleable.Animator_vc_valueType, VALUE_TYPE_FLOAT);
 
         TypeEvaluator evaluator = null;
 
-        // Must be a path animator by the time I reach here
-        if (valueType == VALUE_TYPE_PATH) {
+        if (valueType == VALUE_TYPE_FLOAT) {
+            if (arrayAnimator.hasValue(R.styleable.Animator_android_valueFrom) &&
+                    arrayAnimator.hasValue(R.styleable.Animator_android_valueTo)) {
+                anim.setFloatValues(
+                        arrayAnimator.getFloat(R.styleable.Animator_android_valueFrom, 0),
+                        arrayAnimator.getFloat(R.styleable.Animator_android_valueTo, 0)
+                );
+            } else if (arrayAnimator.hasValue(R.styleable.Animator_android_valueTo)) {
+                anim.setFloatValues(arrayAnimator.getFloat(R.styleable.Animator_android_valueTo, 0));
+            }
+        } else if (valueType == VALUE_TYPE_INT) {
+            if (arrayAnimator.hasValue(R.styleable.Animator_android_valueFrom) &&
+                    arrayAnimator.hasValue(R.styleable.Animator_android_valueTo)) {
+                anim.setIntValues(
+                        arrayAnimator.getInt(R.styleable.Animator_android_valueFrom, 0),
+                        arrayAnimator.getInt(R.styleable.Animator_android_valueTo, 0)
+                );
+            } else if (arrayAnimator.hasValue(R.styleable.Animator_android_valueTo)) {
+                anim.setIntValues(arrayAnimator.getInt(R.styleable.Animator_android_valueTo, 0));
+            }
+        } else if (valueType == VALUE_TYPE_PATH) {
             evaluator = setupAnimatorForPath(anim, arrayAnimator);
         } else {
-            throw new IllegalArgumentException("target is not a pathType target");
+            throw new IllegalArgumentException("Unsupported value type: " + valueType);
         }
 
         anim.setDuration(duration);
