@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 import com.wnafee.vector.MorphButton;
 import com.wnafee.vector.MorphButton.MorphState;
 import com.wnafee.vector.MorphButton.OnStateChangedListener;
+import com.wnafee.vector.compat.ResourcesCompat;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends ActionBarActivity {
@@ -56,6 +58,10 @@ public class MainActivity extends ActionBarActivity {
 
         LinearLayout ll = (LinearLayout) findViewById(R.id.base_view);
         ll.addView(mb);
+
+        ImageView bezierImageView = new ImageView(this);
+        bezierImageView.setImageDrawable(ResourcesCompat.getDrawable(this, R.drawable.basic_bezier));
+        ll.addView(bezierImageView);
     }
 
 

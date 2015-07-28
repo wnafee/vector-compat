@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:width="100dp"
+  android:height="100dp"
+  android:viewportWidth="100"
+  android:viewportHeight="100"
+  app:vc_viewportWidth="100"
+  app:vc_viewportHeight="100"
+  >
+  <path
+    android:fillColor="#000000"
+    android:pathData="s 25.0.50 0 25"
+    app:vc_fillColor="#000000"
+    app:vc_pathData="s 25.0.25 0 25"
+    />
+</vector>
