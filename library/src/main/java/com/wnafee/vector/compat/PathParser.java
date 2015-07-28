@@ -203,6 +203,7 @@ public class PathParser {
     private static void extract(String s, int start, ExtractFloatResult result) {
         // Now looking for ' ', ',' or '-' from the start.
         int currentIndex = start;
+        boolean foundDot = false;
         boolean foundSeparator = false;
         result.mEndWithNegSign = false;
         for (; currentIndex < s.length(); currentIndex++) {
@@ -211,6 +212,18 @@ public class PathParser {
                 case ' ':
                 case ',':
                     foundSeparator = true;
+                    break;
+                case '.':
+                    if (foundDot) {
+                        // Some SVG compressors will try to be clever and include strings like
+                        // "1.5.5", which really means "1.5 0.5".
+                        // So we need to count the number of dots and consider it a separator
+                        // if we've already seen one.
+                        foundSeparator = true;
+                        currentIndex--; // because the next float needs to include the "."
+                    } else {
+                        foundDot = true;
+                    }
                     break;
                 case '-':
                     if (currentIndex != start) {
