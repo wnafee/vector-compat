@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+
+    app:vc_viewportWidth="24"
+    app:vc_viewportHeight="24" >
+    <group
+        android:name="rotationGroup"
+        android:pivotX="12.0"
+        android:pivotY="12.0"
+        android:rotation="90">
+
+        <path
+            android:name="v"
+            android:fillColor="#000000"
+            android:pathData="@string/path_play"
+
+            app:vc_fillColor="#000000"
+            app:vc_pathData="@string/path_play"/>
+    </group>
+</vector>

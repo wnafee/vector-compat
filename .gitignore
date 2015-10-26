@@ -6,3 +6,4 @@ build
 bin
 local.properties
 .idea
+*.iml

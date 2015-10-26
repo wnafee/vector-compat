@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Widget.MorphButton" parent="@android:style/Widget.Holo.Button.Small">
+    <style name="Widget.MorphButton" parent="Widget.AppCompat.Button.Small">
         <item name="vc_startDrawable">@null</item>
         <item name="vc_endDrawable">@null</item>
         <item name="vc_autoStartAnimation">false</item>
