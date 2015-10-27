@@ -194,7 +194,7 @@ public class MorphButton extends CompoundButton {
         if (d != null) {
             d.setCallback(this);
             //TODO: Adjust layout direction
-//            d.setLayoutDirection(getLayoutDirection());
+//            d.setSupportLayoutDirection(getSupportLayoutDirection());
             if (d.isStateful()) {
                 d.setState(getDrawableState());
             }

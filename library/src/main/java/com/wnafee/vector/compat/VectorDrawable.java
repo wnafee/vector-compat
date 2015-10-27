@@ -503,7 +503,7 @@ public class VectorDrawable extends DrawableCompat implements Tintable{
     }
 
     private boolean needMirroring() {
-        return isAutoMirrored() && getLayoutDirection() == 1; // 1 is for LayoutDirection.RTL
+        return isAutoMirrored() && getSupportLayoutDirection() == 1; // 1 is for LayoutDirection.RTL
     }
 
     @Override
