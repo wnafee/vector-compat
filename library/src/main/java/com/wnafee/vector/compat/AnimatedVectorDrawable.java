@@ -152,8 +152,8 @@ public class AnimatedVectorDrawable extends DrawableCompat implements Animatable
         return super.setVisible(visible, restart);
     }
 
-    public void setLayoutDirection(int layoutDirection) {
-        mAnimatedVectorState.mVectorDrawable.setLayoutDirection(layoutDirection);
+    public boolean setSupportLayoutDirection(int layoutDirection) {
+        return mAnimatedVectorState.mVectorDrawable.setSupportLayoutDirection(layoutDirection);
     }
 
     @Override
