@@ -54,7 +54,7 @@
         android:background="?android:selectableItemBackground"
         android:scaleType="center"
         app:vc_backgroundTint="#6A1B9A"
-        app:vc_startDrawable="@drawable/abc_btn_check_to_on_mtrl_000"
-        app:vc_endDrawable="@drawable/abc_btn_check_to_on_mtrl_015"/>
+        app:vc_startDrawable="@drawable/abc_btn_checkbox_checked_mtrl"
+        app:vc_endDrawable="@drawable/abc_btn_checkbox_unchecked_mtrl"/>
 
 </LinearLayout>
