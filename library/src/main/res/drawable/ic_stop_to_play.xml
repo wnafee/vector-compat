@@ -4,9 +4,9 @@
 
     <target
         android:name="rotationGroup"
-        android:animation="@anim/stop_to_play_rotation" />
+        android:animation="@animator/stop_to_play_rotation" />
 
     <target
         android:name="v"
-        android:animation="@anim/stop_to_play_path" />
+        android:animation="@animator/stop_to_play_path" />
 </animated-vector>

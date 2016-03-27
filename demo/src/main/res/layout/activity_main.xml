@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <com.wnafee.vector.MorphButton
+ <!--   <com.wnafee.vector.MorphButton
         android:id="@+id/drawerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,8 +20,8 @@
         android:layout_margin="5dp"
         app:vc_backgroundTint="#3F51B5"
         app:vc_foregroundTint="#f50057"
-        app:vc_startDrawable="@drawable/ic_arrow_to_drawer"
-        app:vc_endDrawable="@drawable/ic_drawer_to_arrow"/>
+        app:vc_startDrawable="@drawable/ic_drawer_to_arrow"
+        app:vc_endDrawable="@drawable/ic_arrow_to_drawer"/> -->
 
     <com.wnafee.vector.MorphButton
         android:id="@+id/playBtn"
@@ -35,7 +35,7 @@
         app:vc_startDrawable="@drawable/ic_play_to_pause"
         app:vc_endDrawable="@drawable/ic_pause_to_play"/>
 
-    <com.wnafee.vector.MorphButton
+   <!-- <com.wnafee.vector.MorphButton
         android:id="@+id/stopBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,6 +55,7 @@
         android:scaleType="center"
         app:vc_backgroundTint="#6A1B9A"
         app:vc_startDrawable="@drawable/abc_btn_checkbox_checked_mtrl"
-        app:vc_endDrawable="@drawable/abc_btn_checkbox_unchecked_mtrl"/>
+        app:vc_endDrawable="@drawable/abc_btn_checkbox_unchecked_mtrl"/> -->
+
 
 </LinearLayout>
