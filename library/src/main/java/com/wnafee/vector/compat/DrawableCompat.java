@@ -27,7 +27,7 @@ import android.util.AttributeSet;
 
 public abstract class DrawableCompat extends Drawable {
 
-    int mLayoutDirection;
+    int mSupportLayoutDirecction;
 
     public static abstract class ConstantStateCompat extends ConstantState {
 
@@ -77,14 +77,16 @@ public abstract class DrawableCompat extends Drawable {
         outRect.set(getBounds());
     }
 
-    public int getLayoutDirection() {
-        return mLayoutDirection;
+    public int getSupportLayoutDirecction() {
+        return mSupportLayoutDirecction;
     }
 
-    public void setLayoutDirection(int layoutDirection) {
-        if (getLayoutDirection() != layoutDirection) {
-            mLayoutDirection = layoutDirection;
+    public boolean setSupportLayoutDirection(int layoutDirection) {
+
+        if (getSupportLayoutDirecction() != layoutDirection) {
+            mSupportLayoutDirecction = layoutDirection;
         }
+        return false;
     }
 
     /**

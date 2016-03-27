@@ -4,9 +4,9 @@
 
     <target
         android:name="rotationGroup"
-        android:animation="@anim/arrow_to_drawer_rotation" />
+        android:animation="@animator/arrow_to_drawer_rotation" />
 
     <target
         android:name="v"
-        android:animation="@anim/arrow_to_drawer_path" />
+        android:animation="@animator/arrow_to_drawer_path" />
 </animated-vector>
