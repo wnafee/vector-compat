@@ -5,4 +5,16 @@
     <string name="path_pause">M 6,19 L 10,19 L 10,5 L 6,5 L 6,19 z M 14,19 L 18,19 L 18,5 L 14,5 L 14,19 z</string>
     <string name="path_play">M 5, 18.06 L 12,18.06 L 12,5.94 L 12,5.94 L 5,18.06 z M 12,18.06 L 19,18.06 L 12,5.94 L 12,5.94 L 12,18.06 z</string>
     <string name="path_stop">M 6,18 L 12,18 L 12,6 L 6,6 L 6,18 z M 12,18 L 18,18 L 18,6 L 12,6 L 12,18z</string>
+    
+    <!-- AboutLibs support -->
+    <string name="define_VectorCompat"></string>
+    <string name="library_VectorCompat_author">Wael N</string>
+    <string name="library_VectorCompat_libraryName">Vector-Compat</string>
+    <string name="library_VectorCompat_libraryDescription">A support library for VectorDrawable and AnimatedVectorDrawable introduced in Lollipop with fully backwards compatible tint support (api 14+ so far)
+    </string>
+    <string name="library_VectorCompat_libraryVersion">1.0.5</string>
+    <string name="library_VectorCompat_libraryWebsite">https://github.com/wnafee/vector-compat/</string>
+    <string name="library_VectorCompat_licenseId">apache_2_0</string>
+    <string name="library_VectorCompat_isOpenSource">true</string>
+    <string name="library_VectorCompat_repositoryLink">https://github.com/wnafee/vector-compat</string>
 </resources>
